@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - 상원's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="header-container"></header>
+
+    <main class="main-project">
+        <h1 class="title">Projects</h1>
+        <div class="line"></div>
+
+        <!-- 1. 상단 프로젝트 타임라인 (이미지 반영) -->
+        <div class="project-timeline-wrapper">
+            <div class="timeline-line"></div>
+            
+            <!-- STO Project -->
+            <div class="timeline-node">
+                <div class="node-top">
+                    5인 프로젝트<br>2026.03 ~ 2026.04
+                </div>
+                <div class="node-dot"></div>
+                <div class="node-logo" style="color: #c9a050;">❖</div>
+                <div class="node-title">STO Project</div>
+                <div class="node-desc">STO 조각 투자<br>토큰 증권 PoC</div>
+            </div>
+
+            <!-- Alpha Stream -->
+            <div class="timeline-node">
+                <div class="node-top">
+                    개인 프로젝트<br>2026.05 ~ 2026.06
+                </div>
+                <div class="node-dot"></div>
+                <div class="node-logo" style="color: #007bff;">Alpha Stream</div>
+                <div class="node-title">Alpha Stream</div>
+                <div class="node-desc">초저지연 지향<br>실시간 주식 거래<br>프로젝트</div>
+            </div>
+
+            <!-- SecondHandBooks -->
+            <div class="timeline-node">
+                <div class="node-top">
+                    6인 프로젝트<br>2026.01 ~ 2026.02
+                </div>
+                <div class="node-dot"></div>
+                <div class="node-logo" style="color: #111;">SecondHand<span style="color: #007bff;">Books</span></div>
+                <div class="node-title">SecondHandBooks</div>
+                <div class="node-desc">안전 결제 기반<br>Escrow<br>중고책 거래 플랫폼</div>
+            </div>
+
+            <!-- TripToN -->
+            <div class="timeline-node">
+                <div class="node-top">
+                    2인 프로젝트<br>2025.08 ~ 2025.09
+                </div>
+                <div class="node-dot"></div>
+                <div class="node-logo" style="font-size: 24px;">🧳</div>
+                <div class="node-title" style="border: 1px solid #ccc; padding: 5px 15px; margin-bottom: 10px;">TripToN</div>
+                <div class="node-desc">사용자 고민<br>AI 상담 서비스</div>
+            </div>
+        </div>
+
+        <!-- 2. 프로젝트 상세 카드 그리드 -->
+        <div class="project-grid">
+            <!-- STO Project 카드 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>STO Project</h3>
+                <p>증권형 토큰(STO) 발행 및 조각 투자 플랫폼의 핵심 기능을 구현한 PoC 프로젝트입니다. 블록체인 네트워크와의 연동 및 트랜잭션 처리를 담당했습니다.</p>
+                <ul>
+                    <li>Spring Boot, JPA, MySQL</li>
+                    <li>AWS EC2, Docker</li>
+                </ul>
+                <div class="card-links">
+                    <a href="#" class="btn-link">GitHub</a>
+                    <a href="#" class="btn-link" style="background-color: #333;">Read More</a>
+                </div>
+            </div>
+
+            <!-- Alpha Stream 카드 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1642543492481-44e81e3914a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>Alpha Stream</h3>
+                <p>주식 매수/매도 체결의 지연 시간을 최소화하기 위한 초저지연 실시간 거래 시스템입니다. 인메모리 데이터베이스와 메시지 큐를 활용해 성능을 최적화했습니다.</p>
+                <ul>
+                    <li>Spring Boot, Redis, Kafka</li>
+                    <li>WebSocket, MySQL</li>
+                </ul>
+                <div class="card-links">
+                    <a href="#" class="btn-link">GitHub</a>
+                    <a href="#" class="btn-link" style="background-color: #333;">Read More</a>
+                </div>
+            </div>
+
+            <!-- SecondHandBooks 카드 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>SecondHandBooks</h3>
+                <p>개인 간 중고책 거래 시 사기 피해를 방지하기 위해 에스크로(Escrow) 안전 결제 시스템을 도입한 C2C 중고 거래 플랫폼입니다.</p>
+                <ul>
+                    <li>Java, Spring, MyBatis</li>
+                    <li>MariaDB, Nginx</li>
+                </ul>
+                <div class="card-links">
+                    <a href="#" class="btn-link">GitHub</a>
+                    <a href="#" class="btn-link" style="background-color: #333;">Read More</a>
+                </div>
+            </div>
+
+            <!-- TripToN 카드 -->
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <h3>TripToN</h3>
+                <p>사용자의 여행 취향과 현재 고민을 입력받아 AI가 맞춤형 여행지를 추천하고 상담해 주는 힐링 여행 서비스입니다.</p>
+                <ul>
+                    <li>Spring Boot, OpenAI API</li>
+                    <li>PostgreSQL, React</li>
+                </ul>
+                <div class="card-links">
+                    <a href="#" class="btn-link">GitHub</a>
+                    <a href="#" class="btn-link" style="background-color: #333;">Read More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 자바스크립트 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
