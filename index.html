@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상원's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 24px; font-weight: 800; }
+        .menu ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        .menu ul li a { font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        .menu ul li a:hover { color: #007bff; }
+
+        main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            padding: 0 50px;
+            gap: 50px;
+        }
+
+        /* 이미지 */
+        .image-box {
+            width: 400px;
+            height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 텍스트 */
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .name {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+        .line {
+            width: 50px;
+            height: 4px;
+            background-color: #007bff;
+            margin-bottom: 20px;
+        }
+        
+        /* 롤링되는 애니메이션 텍스트 */
+        .animated-text {
+            font-size: 32px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .words-wrapper {
+            margin-left: 10px;
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+        .words {
+            display: flex;
+            flex-direction: column;
+            animation: rollUp 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+            color: #007bff;
+        }
+        .words span { height: 40px; line-height: 40px; }
+
+        @keyframes rollUp {
+            0%, 25% { transform: translateY(0); }
+            33%, 58% { transform: translateY(-40px); }
+            66%, 91% { transform: translateY(-80px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* 프로젝트 바로가기 */
+        .btn-project {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+            font-weight: 600;
+            border-radius: 30px;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
+        .btn-project:hover {
+            background-color: #007bff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 상단 메뉴 -->
+    <header>
+        <div class="logo"><a href="#">Nippycloud</a></div>
+        <div class="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Project</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- 프로필 사진 -->
+        <div class="image-box"></div>
+
+        <!-- 텍스트, 버튼 -->
+        <div class="text-box">
+            <h3 class="name">Lee Sangwon</h3>
+            <div class="line"></div>
+            
+            <div class="animated-text">
+                Creative 
+                <div class="words-wrapper">
+                    <div class="words">
+                        <span>Backend Dev</span>
+                        <span>Thinker</span>
+                        <span>Innovator</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AWS EC2 연결 버튼 -->
+            <a href="http://상원님의-EC2-아이피:8081" target="_blank" class="btn-project">Go Project</a>
+        </div>
+    </main>
+
+</body>
+</html>
