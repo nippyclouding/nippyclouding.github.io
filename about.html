@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - 상원's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; color: #333; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 링크 */
+        .link-hover { transition: color 0.3s; }
+        .link-hover:hover { color: #007bff; text-decoration: underline; }
+
+        /* 공통 헤더 */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; }
+        .menu ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+        .menu ul li a { font-weight: 600; font-size: 16px; transition: color 0.3s; }
+        .menu ul li a:hover, .menu ul li a.active { color: #007bff; }
+
+        /* 메인 레이아웃 */
+        main { max-width: 800px; margin: 50px auto; padding: 0 20px 100px 20px; }
+        .title { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+        .line { width: 50px; height: 4px; background-color: #007bff; margin-bottom: 40px; }
+        
+        /* 섹션 공통 스타일 */
+        .section-title { font-size: 24px; font-weight: 800; margin-top: 50px; margin-bottom: 20px; color: #111; border-bottom: 2px solid #f1f3f5; padding-bottom: 10px; }
+        
+        /* About Me 기본 정보 */
+        .profile-info { font-size: 16px; line-height: 1.8; color: #444; }
+        .profile-info strong { width: 80px; display: inline-block; color: #222; }
+        
+        /* 채널 버튼 */
+        .channels { display: flex; gap: 15px; margin-top: 20px; }
+        .btn-channel { padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; color: white; transition: transform 0.3s, opacity 0.3s; }
+        .btn-channel:hover { transform: translateY(-3px); opacity: 0.9; }
+        .btn-github { background-color: #181717; }
+        .btn-blog { background-color: #eb531f; } /* 티스토리 상징색 */
+
+        /* 이력 리스트 (타임라인 스타일) */
+        .history-list { list-style: none; padding: 0; margin: 0; }
+        .history-list li { display: flex; align-items: flex-start; margin-bottom: 15px; line-height: 1.6; }
+        .history-list .date { font-weight: 600; color: #007bff; width: 180px; flex-shrink: 0; font-size: 15px; }
+        .history-list .desc { font-size: 16px; color: #333; font-weight: 600; }
+        .history-list .sub-desc { font-size: 14px; color: #666; font-weight: 400; margin-top: 4px; }
+
+        /* 기술 스택 배지 */
+        .tech-stack { margin-top: 20px; }
+        .stack-category { margin-bottom: 25px; }
+        .stack-category h4 { margin: 0 0 10px 0; font-size: 16px; color: #555; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">상원's</a></div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="project.html">Project</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="title">About Me</h1>
+        <div class="line"></div>
+
+        <!-- 기본 프로필 정보 -->
+        <div class="profile-info">
+            <div><strong>Name</strong> 이상원 (Lee Sang Won)</div>
+            <div><strong>Birth</strong> 1999.05.21</div>
+        </div>
+
+        <!-- 채널 링크 -->
+        <div class="channels">
+            <a href="https://github.com/nippyclouding" target="_blank" class="btn-channel btn-github">GitHub</a>
+            <a href="https://nippyclouding.tistory.com/" target="_blank" class="btn-channel btn-blog">Tistory Blog</a>
+        </div>
+
+        <!-- 학력 -->
+        <h2 class="section-title">Education</h2>
+        <ul class="history-list">
+            <li>
+                <div class="date">졸업</div>
+                <div>
+                    <div class="desc">영남대학교 경제금융학부 졸업</div>
+                    <div class="sub-desc">컴퓨터공학부 부전공 이수</div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 대외활동 및 교육 -->
+        <h2 class="section-title">Activities & Training</h2>
+        <ul class="history-list">
+            <li>
+                <div class="date">2026.11 ~ 2026.04</div>
+                <div class="desc">
+                    <a href="https://shinhanacademy.com/" target="_blank" class="link-hover">신한 DS 금융 SW 아카데미 🔗</a>
+                </div>
+            </li>
+            <li>
+                <div class="date">2026.04 ~ 2026.06</div>
+                <div class="desc">
+                    <a href="https://oss.kr/pages/3" target="_blank" class="link-hover">오픈소스 컨트리뷰션 아카데미 🔗</a>
+                </div>
+                <div class="sub-desc">과학기술정보통신부 주관</div>
+            </li>
+        </ul>
+
+        <!-- 자격증  -->
+        <h2 class="section-title">Certificate</h2>
+        <ul class="history-list">
+            <li>
+                <div class="date">2025.09</div>
+                <div>
+                    <div class="desc">정보처리기사</div>
+                    <div class="sub-desc">한국산업인력공단</div>
+                </div>
+            </li>
+            <li>
+                <div class="date">2025.03</div>
+                <div>
+                    <div class="desc">리눅스마스터 2급</div>
+                    <div class="sub-desc">한국정보통신진흥협회</div>
+                </div>
+            </li>
+            <li>
+                <div class="date">2024.12</div>
+                <div>
+                    <div class="desc">SQLD</div>
+                    <div class="sub-desc">한국데이터산업진흥원</div>
+                </div>
+            </li>
+            <li>
+                <div class="date">2024.09</div>
+                <div>
+                    <div class="desc">ADsP</div>
+                    <div class="sub-desc">한국데이터산업진흥원</div>
+                </div>
+            </li>
+            <li>
+                <div class="date">2013</div>
+                <div>
+                    <div class="desc">정보처리산업기사</div>
+                    <div class="sub-desc">한국산업인력공단</div>
+                </div>
+            </li>
+        </ul>
+
+        <!-- 기술 스택  -->
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-stack">
+            <div class="stack-category">
+                <h4>Backend & Framework</h4>
+                <div class="tags">
+                    <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white" alt="Java">
+                    <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=spring&logoColor=white" alt="Spring">
+                    <img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot">
+                    <img src="https://img.shields.io/badge/egovFrame-333333?style=flat-square" alt="egovFrame">
+                    <img src="https://img.shields.io/badge/RESTful API-005571?style=flat-square" alt="RESTful API">
+                    <img src="https://img.shields.io/badge/JPA-59666C?style=flat-square" alt="JPA">
+                    <img src="https://img.shields.io/badge/MyBatis-000000?style=flat-square" alt="MyBatis">
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h4>Infrastructure & Cloud (AWS)</h4>
+                <div class="tags">
+                    <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=amazonec2&logoColor=white" alt="Amazon EC2">
+                    <img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=flat-square&logo=amazonrds&logoColor=white" alt="Amazon RDS">
+                    <img src="https://img.shields.io/badge/Amazon S3-569A31?style=flat-square&logo=amazons3&logoColor=white" alt="Amazon S3">
+                    <img src="https://img.shields.io/badge/CloudFront-D05C4B?style=flat-square" alt="CloudFront">
+                    <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker">
+                    <img src="https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white" alt="Nginx">
+                    <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis">
+                    <img src="https://img.shields.io/badge/Apache Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white" alt="Kafka">
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h4>Database</h4>
+                <div class="tags">
+                    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
+                    <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB">
+                    <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                </div>
+            </div>
+
+            <div class="stack-category">
+                <h4>Tools & Collaboration</h4>
+                <div class="tags">
+                    <img src="https://img.shields.io/badge/IntelliJ IDEA-000000?style=flat-square&logo=intellijidea&logoColor=white" alt="IntelliJ">
+                    <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" alt="GitHub">
+                    <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=notion&logoColor=white" alt="Notion">
+                    <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white" alt="Figma">
+                    <img src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=discord&logoColor=white" alt="Discord">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
