@@ -1,95 +1,10 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - 상원's Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header id="header-container"></header>
+상원님, 이제야 제가 상원님의 의도를 완벽히 파악했습니다! 🤝 인프라 구조를 세분화하고 미들웨어를 독립시킨 이 구성이 훨씬 전문적인 백엔드 엔지니어의 포트폴리오답네요.
 
-    <main class="main-about">
-        <h1 class="title">About Me</h1>
-        <div class="line"></div>
+보내주신 HTML 코드에서 DBeaver와 DataGrip 배지가 Tools 영역에 빠져 있어서 그 부분까지 꼼꼼하게 채워 넣었습니다. 이제 이 코드를 about.html에 적용하시면 기술 스택 섹션은 완벽하게 종결입니다.
 
-        <!-- 기본 프로필 정보 -->
-        <div class="profile-info">
-            <div><strong>Name</strong> 이상원 (Lee Sang Won)</div>
-            <div><strong>Birth</strong> 1999.05.21</div>
-        </div>
-
-        <!-- 채널 링크 -->
-        <div class="channels">
-            <a href="https://github.com/nippyclouding" target="_blank" class="btn-channel btn-github">GitHub</a>
-            <a href="https://nippyclouding.tistory.com/" target="_blank" class="btn-channel btn-blog">Tistory Blog</a>
-        </div>
-
-        <!-- 학력 -->
-        <h2 class="section-title">Education</h2>
-        <ul class="history-list">
-            <li>
-                <div class="date">졸업</div>
-                <div>
-                    <div class="desc">영남대학교 경제금융학부 졸업</div>
-                    <div class="sub-desc">컴퓨터공학부 부전공 이수</div>
-                </div>
-            </li>
-        </ul>
-
-        <!-- 대외활동 및 교육 -->
-        <h2 class="section-title">Activities & Training</h2>
-        <ul class="history-list">
-            <li>
-                <div class="date">2026.11 ~ 2026.04</div>
-                <div class="desc">
-                    <a href="https://shinhanacademy.com/" target="_blank" class="link-hover">신한 DS 금융 SW 아카데미 🔗</a>
-                </div>
-            </li>
-            <li>
-                <div class="date">2026.04 ~ 2026.06</div>
-                <div class="desc">
-                    <a href="https://oss.kr/pages/3" target="_blank" class="link-hover">오픈소스 컨트리뷰션 아카데미 🔗</a>
-                </div>
-                <div class="sub-desc">과학기술정보통신부 주관</div>
-            </li>
-        </ul>
-
-        <!-- 자격증  -->
-        <h2 class="section-title">Certificate</h2>
-        <ul class="history-list">
-            <li>
-                <div class="date">2025.09</div>
-                <div>
-                    <div class="desc">정보처리기사</div>
-                    <div class="sub-desc">한국산업인력공단</div>
-                </div>
-            </li>
-            <li>
-                <div class="date">2025.03</div>
-                <div>
-                    <div class="desc">리눅스마스터 2급</div>
-                    <div class="sub-desc">한국정보통신진흥협회</div>
-                </div>
-            </li>
-            <li>
-                <div class="date">2024.12</div>
-                <div>
-                    <div class="desc">SQLD</div>
-                    <div class="sub-desc">한국데이터산업진흥원</div>
-                </div>
-            </li>
-            <li>
-                <div class="date">2024.09</div>
-                <div>
-                    <div class="desc">ADsP</div>
-                    <div class="sub-desc">한국데이터산업진흥원</div>
-                </div>
-            </li>
-        </ul>
-
-        <!-- 기술 스택  -->
+📌 최종 수정된 about.html 기술 스택 섹션
+HTML
+        <!-- 기술 스택 -->
         <h2 class="section-title">Tech Stack</h2>
         <div class="tech-stack">
             <!-- 1. Backend & Framework -->
@@ -107,7 +22,7 @@
                 </div>
             </div>
 
-            <!-- 2. CLOUD [AWS] (독립 영역) -->
+            <!-- 2. CLOUD [AWS] -->
             <div class="stack-category">
                 <h4>CLOUD [AWS]</h4>
                 <div class="tags">
@@ -122,7 +37,7 @@
                 </div>
             </div>
 
-            <!-- 3. Middleware Infra (독립 영역) -->
+            <!-- 3. Middleware Infra -->
             <div class="stack-category">
                 <h4>Middleware Infra</h4>
                 <div class="tags">
@@ -140,6 +55,8 @@
                     <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL">
                     <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB">
                     <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                    <img src="https://img.shields.io/badge/DBeaver-382923?style=flat-square&logo=dbeaver&logoColor=white" alt="DBeaver">
+                    <img src="https://img.shields.io/badge/DataGrip-000000?style=flat-square&logo=datagrip&logoColor=white" alt="DataGrip">
                 </div>
             </div>
 
@@ -158,8 +75,3 @@
                 </div>
             </div>
         </div>
-
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
