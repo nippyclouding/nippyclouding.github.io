@@ -36,6 +36,12 @@
             gap: 50px;
         }
 
+        /* 현재 페이지 메뉴 강조색 */
+        .menu ul li a.active {
+            color: #007bff; /* 파란색 강조 */
+            font-weight: 800; /* 글자 두껍게 */
+        }
+
         /* 이미지 */
         .image-box {
             width: 400px;
@@ -117,12 +123,13 @@
 
     <!-- 상단 메뉴 -->
     <header>
-        <div class="logo"><a href="#">SangWon's Portfolio</a></div>
+        <div class="logo"><a href="index.html">SangWon's Portfolio</a></div>
         <div class="menu">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Project</a></li>
+                <!-- 각 페이지 파일 이름에 맞춰 수정 -->
+                <li><a href="index.html" class="nav-home">Home</a></li>
+                <li><a href="about.html" class="nav-about">About</a></li>
+                <li><a href="project.html" class="nav-project">Project</a></li>
             </ul>
         </div>
     </header>
