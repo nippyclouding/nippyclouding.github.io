@@ -13,13 +13,6 @@
         .link-hover { transition: color 0.3s; }
         .link-hover:hover { color: #007bff; text-decoration: underline; }
 
-        /* 공통 헤더 */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .logo { font-size: 24px; font-weight: 800; }
-        .menu ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-        .menu ul li a { font-weight: 600; font-size: 16px; transition: color 0.3s; }
-        .menu ul li a:hover, .menu ul li a.active { color: #007bff; }
-
         /* 메인 레이아웃 */
         main { max-width: 800px; margin: 50px auto; padding: 0 20px 100px 20px; }
         .title { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
@@ -54,17 +47,7 @@
     </style>
 </head>
 <body>
-
-    <header>
-        <div class="logo"><a href="index.html">상원's</a></div>
-        <div class="menu">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="project.html">Project</a></li>
-            </ul>
-        </div>
-    </header>
+    <header id="header-container"></header>
 
     <main>
         <h1 class="title">About Me</h1>
@@ -204,6 +187,6 @@
         </div>
 
     </main>
-
+    <script src="script.js"></script>
 </body>
 </html>
