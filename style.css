@@ -84,6 +84,88 @@ header { display: flex; justify-content: space-between; align-items: center; pad
 .btn-link { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; transition: background 0.3s; }
 .btn-link:hover { background-color: #0056b3; }
 
+/* =========================================
+   추가된 Project 페이지 타임라인 & 카드 상세 스타일
+   ========================================= */
+
+/* 타임라인 레이아웃 (가로형) */
+.project-timeline-wrapper {
+    position: relative;
+    margin: 40px 0 80px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.timeline-line {
+    position: absolute;
+    top: 52px; /* 회색 점(dot) 높이에 맞춤 */
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #999;
+    z-index: 1;
+}
+.timeline-node {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 23%;
+    background-color: #fff; /* 선을 가리기 위한 배경 */
+}
+.node-top {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+    height: 38px; 
+    line-height: 1.4;
+}
+.node-dot {
+    width: 14px;
+    height: 14px;
+    background-color: #555;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.node-logo {
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 15px;
+    height: 24px;
+}
+.node-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+.node-desc {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* 프로젝트 카드 이미지 및 버튼 정렬 */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+.card-img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.card-links {
+    margin-top: auto; /* 버튼들을 카드 하단으로 밀어냄 */
+    display: flex;
+    gap: 10px;
+}
+
 /* 반응형 */
 @media (max-width: 768px) {
     /* 공통: 헤더 세로 배치 및 간격 축소 */
@@ -115,6 +197,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
         66%, 91% { transform: translateY(-70px); }
         100% { transform: translateY(0); }
     }
+   
 
     /* About 페이지: 여백 줄이고 타임라인 세로로 변경 */
     .main-about { padding: 0 15px 50px 15px; margin-top: 20px; }
@@ -129,4 +212,32 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     /* Project 페이지: 2칸 카드를 1칸으로 변경 */
     .main-project { padding: 0 15px 50px 15px; margin-top: 20px; }
     .project-grid { grid-template-columns: 1fr; gap: 20px; }
+
+
+
+   /* 모바일 타임라인 (세로형 변환) */
+    .project-timeline-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding-left: 30px;
+    }
+    .timeline-line {
+        top: 0;
+        bottom: 0;
+        left: 36px;
+        width: 2px;
+        height: auto;
+    }
+    .timeline-node {
+        width: 100%;
+        flex-direction: row;
+        text-align: left;
+        background: transparent;
+    }
+    .node-top { height: auto; width: 120px; margin-bottom: 0; padding-right: 15px; }
+    .node-dot { margin: 0 15px 0 0; position: relative; left: -10px; }
+    .node-logo, .node-title, .node-desc { margin-bottom: 5px; }
+    .node-logo { display: none; /* 모바일에서는 깔끔함을 위해 로고 생략 */ }
+    .node-desc { br { display: none; } } /* 모바일에서는 줄바꿈 무시 */
 }
