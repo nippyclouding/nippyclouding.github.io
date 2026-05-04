@@ -1,0 +1,96 @@
+/* =========================================
+   1. 공통 스타일 (모든 페이지 적용)
+   ========================================= */
+body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #ffffff; color: #333333; }
+a { text-decoration: none; color: inherit; }
+
+/* 헤더 */
+header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background-color: white; }
+.logo { font-size: 24px; font-weight: 800; }
+.menu ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+.menu ul li a { font-weight: 600; font-size: 16px; transition: color 0.3s; color: #333;}
+.menu ul li a:hover { color: #007bff; }
+.menu ul li a.active { color: #007bff; font-weight: 800; }
+
+/* 공통 제목 스타일 (About, Project용) */
+.title { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
+.line { width: 50px; height: 4px; background-color: #007bff; margin-bottom: 40px; }
+
+
+/* =========================================
+   2. Index 페이지 전용 스타일
+   ========================================= */
+/* index의 main은 화면 중앙 정렬 */
+.main-index { display: flex; align-items: center; justify-content: center; height: 80vh; padding: 0 50px; gap: 50px; }
+
+.image-box { width: 400px; height: 400px; background-image: url('./profile.jpg'); background-size: cover; background-position: center; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.text-box { display: flex; flex-direction: column; justify-content: center; }
+.name { font-size: 48px; font-weight: 800; margin: 0 0 10px 0; }
+.index-line { width: 50px; height: 4px; background-color: #007bff; margin-bottom: 20px; }
+
+/* 롤링 애니메이션 */
+.animated-text { font-size: 32px; font-weight: 600; display: flex; align-items: center; margin-bottom: 40px; }
+.words-wrapper { margin-left: 10px; height: 40px; overflow: hidden; position: relative; }
+.words { display: flex; flex-direction: column; animation: rollUp 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; color: #007bff; }
+.words span { height: 40px; line-height: 40px; }
+
+@keyframes rollUp {
+    0%, 25% { transform: translateY(0); }
+    33%, 58% { transform: translateY(-40px); }
+    66%, 91% { transform: translateY(-80px); }
+    100% { transform: translateY(0); }
+}
+
+/* 프로젝트 연결 버튼 */
+.btn-project { display: inline-block; padding: 15px 30px; background-color: #333; color: white; font-weight: 600; border-radius: 30px; width: fit-content; transition: all 0.3s ease; }
+.btn-project:hover { background-color: #007bff; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,123,255,0.3); }
+
+
+/* =========================================
+   3. About 페이지 전용 스타일
+   ========================================= */
+/* about의 main은 세로 스크롤형 */
+.main-about { max-width: 800px; margin: 50px auto; padding: 0 20px 100px 20px; }
+
+.section-title { font-size: 24px; font-weight: 800; margin-top: 50px; margin-bottom: 20px; color: #111; border-bottom: 2px solid #f1f3f5; padding-bottom: 10px; }
+.profile-info { font-size: 16px; line-height: 1.8; color: #444; }
+.profile-info strong { width: 80px; display: inline-block; color: #222; }
+
+/* 채널 버튼 */
+.channels { display: flex; gap: 15px; margin-top: 20px; }
+.btn-channel { padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; color: white; transition: transform 0.3s, opacity 0.3s; }
+.btn-channel:hover { transform: translateY(-3px); opacity: 0.9; }
+.btn-github { background-color: #181717; }
+.btn-blog { background-color: #eb531f; }
+.link-hover { transition: color 0.3s; }
+.link-hover:hover { color: #007bff; text-decoration: underline; }
+
+/* 타임라인 (이력 리스트) */
+.history-list { list-style: none; padding: 0; margin: 0; }
+.history-list li { display: flex; align-items: flex-start; margin-bottom: 15px; line-height: 1.6; }
+.history-list .date { font-weight: 600; color: #007bff; width: 180px; flex-shrink: 0; font-size: 15px; }
+.history-list .desc { font-size: 16px; color: #333; font-weight: 600; }
+.history-list .sub-desc { font-size: 14px; color: #666; font-weight: 400; margin-top: 4px; }
+
+/* 기술 스택 배지 */
+.tech-stack { margin-top: 20px; }
+.stack-category { margin-bottom: 25px; }
+.stack-category h4 { margin: 0 0 10px 0; font-size: 16px; color: #555; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+
+/* =========================================
+   4. Project 페이지 전용 스타일
+   ========================================= */
+/* project의 main은 넓은 세로 스크롤형 */
+.main-project { max-width: 1000px; margin: 50px auto; padding: 0 20px 100px 20px; }
+
+.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: transform 0.3s; border: 1px solid #f1f3f5; }
+.card:hover { transform: translateY(-5px); }
+.card h3 { font-size: 22px; font-weight: 800; margin-top: 0; }
+.card p { color: #666; line-height: 1.6; font-size: 15px; }
+.card ul { padding-left: 20px; color: #555; margin-bottom: 25px; }
+.card ul li { margin-bottom: 8px; font-size: 14px; }
+.btn-link { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; transition: background 0.3s; }
+.btn-link:hover { background-color: #0056b3; }
