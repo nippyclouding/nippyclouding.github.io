@@ -31,6 +31,79 @@ function setActiveMenu() {
     } else if (page === 'project.html') {
         const projectMenu = document.getElementById('nav-project');
         if (projectMenu) projectMenu.classList.add('active');
+        // 프로젝트 페이지일 경우 모달 초기화 실행
+        initProjectModal();
+    }
+}
+
+// 프로젝트 모달 초기화 및 관리
+function initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+
+    const modalTitle = document.getElementById('modal-title');
+    const modalOverview = document.getElementById('modal-overview');
+    const modalVideoContainer = document.getElementById('modal-video-container');
+    const closeButton = document.querySelector('.close-button');
+    const readMoreBtns = document.querySelectorAll('.btn-read-more');
+
+    // 프로젝트 데이터 정의
+    const projectData = {
+        'sto': {
+            title: 'STO Project',
+            overview: '', // 비워둠
+            videoUrl: 'https://www.youtube.com/embed/MlunL9xoCPI'
+        },
+        'books': {
+            title: 'SecondHandBooks',
+            overview: '', // 비워둠
+            videoUrl: 'https://www.youtube.com/embed/bUNw9EWqAn8'
+        },
+        'tripton': {
+            title: 'TripToN',
+            overview: '', // 비워둠
+            videoUrl: '' // 시연 영상 없음
+        }
+    };
+
+    // 모달 열기
+    readMoreBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const projectId = btn.getAttribute('data-project');
+            const data = projectData[projectId];
+
+            if (data) {
+                modalTitle.innerText = data.title;
+                modalOverview.innerText = data.overview;
+                
+                if (data.videoUrl) {
+                    modalVideoContainer.innerHTML = `<iframe src="${data.videoUrl}" allowfullscreen></iframe>`;
+                } else {
+                    modalVideoContainer.innerHTML = '<p style="color: #999; text-align: center; padding: 40px 0;">시연 영상이 준비 중입니다.</p>';
+                }
+
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // 스크롤 방지
+            }
+        });
+    });
+
+    // 모달 닫기 (X 버튼)
+    closeButton.addEventListener('click', () => {
+        closeModal();
+    });
+
+    // 모달 닫기 (배경 클릭)
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+        modalVideoContainer.innerHTML = ''; // 영상 정지 (iframe 제거)
+        document.body.style.overflow = 'auto'; // 스크롤 복구
     }
 }
 
