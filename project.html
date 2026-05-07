@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header id="header-container"></header>
@@ -18,7 +20,7 @@
         <!-- 1. 상단 프로젝트 타임라인 (이미지 반영) -->
         <div class="project-timeline-wrapper">
             <div class="timeline-line"></div>
-            
+
             <!-- STO Project -->
             <div class="timeline-node">
                 <div class="node-top">
@@ -58,7 +60,9 @@
         <div class="project-grid">
             <!-- STO Project 카드 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-img"
+                    style="background-image: url('project_image/sto_image/STO_Thumbnail.png');">
+                </div>
                 <h3>STO Project</h3>
                 <p>STO 부동산 토큰 증권 금융 프로젝트</p>
                 <ul>
@@ -67,14 +71,17 @@
                 </ul>
                 <div class="card-links">
                     <a href="https://github.com/nippyclouding/STO" target="_blank" class="btn-link">GitHub</a>
-                    <button class="btn-link btn-read-more" data-project="sto" style="background-color: #333; border: none; cursor: pointer;">Read More</button>
+                    <button class="btn-link btn-read-more" data-project="sto"
+                        style="background-color: #333; border: none; cursor: pointer;">Read More</button>
                 </div>
             </div>
 
 
             <!-- SecondHandBooks 카드 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-img"
+                    style="background-image: url('project_image/secondhandbooks_image/SecondHandBooks_Thumbnail.png');">
+                </div>
                 <h3>SecondHandBooks</h3>
                 <p>중고책 Escrow 거래 플랫폼</p>
                 <ul>
@@ -82,14 +89,18 @@
                     <li>AWS, Redis</li>
                 </ul>
                 <div class="card-links">
-                    <a href="https://github.com/nippyclouding/secondary-book" target="_blank" class="btn-link">GitHub</a>
-                    <button class="btn-link btn-read-more" data-project="books" style="background-color: #333; border: none; cursor: pointer;">Read More</button>
+                    <a href="https://github.com/nippyclouding/secondary-book" target="_blank"
+                        class="btn-link">GitHub</a>
+                    <button class="btn-link btn-read-more" data-project="books"
+                        style="background-color: #333; border: none; cursor: pointer;">Read More</button>
                 </div>
             </div>
 
             <!-- TripToN 카드 -->
             <div class="card">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="card-img"
+                    style="background-image: url('project_image/tripton_image/TripToN_Thumbnail.png');">
+                </div>
                 <h3>TripToN</h3>
                 <p>사용자의 고민을 AI가 상담하는 서비스</p>
                 <ul>
@@ -98,7 +109,8 @@
                 </ul>
                 <div class="card-links">
                     <a href="https://github.com/nippyclouding/trip-to-n" target="_blank" class="btn-link">GitHub</a>
-                    <button class="btn-link btn-read-more" data-project="tripton" style="background-color: #333; border: none; cursor: pointer;">Read More</button>
+                    <button class="btn-link btn-read-more" data-project="tripton"
+                        style="background-color: #333; border: none; cursor: pointer;">Read More</button>
                 </div>
             </div>
         </div>
@@ -109,13 +121,8 @@
         <div class="modal-content">
             <span class="close-button">&times;</span>
             <h2 id="modal-title">Project Title</h2>
-            
-            <div class="modal-section">
-                <h3>개요</h3>
-                <div id="modal-overview" class="overview-content">
-                    <!-- Overview content will be populated here -->
-                </div>
-            </div>
+
+
 
             <div class="modal-section">
                 <h3>시연</h3>
@@ -129,4 +136,5 @@
     <!-- 자바스크립트 파일 연결 -->
     <script src="script.js"></script>
 </body>
+
 </html>

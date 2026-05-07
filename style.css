@@ -1,88 +1,376 @@
 /* =========================================
    1. 공통 스타일 (모든 페이지 적용)
    ========================================= */
-body { margin: 0; padding: 0; font-family: 'Open Sans', sans-serif; background-color: #ffffff; color: #333333; }
-a { text-decoration: none; color: inherit; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
 /* 헤더 */
-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); background-color: white; }
-.logo { font-size: 24px; font-weight: 800; }
-.menu ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
-.menu ul li a { font-weight: 600; font-size: 16px; transition: color 0.3s; color: #333;}
-.menu ul li a:hover { color: #007bff; }
-.menu ul li a.active { color: #007bff; font-weight: 800; }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: white;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li a {
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+    color: #333;
+}
+
+.menu ul li a:hover {
+    color: #007bff;
+}
+
+.menu ul li a.active {
+    color: #007bff;
+    font-weight: 800;
+}
 
 /* 공통 제목 스타일 */
-.title { font-size: 36px; font-weight: 800; margin-bottom: 10px; }
-.line { width: 50px; height: 4px; background-color: #007bff; margin-bottom: 40px; }
+.title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.line {
+    width: 50px;
+    height: 4px;
+    background-color: #007bff;
+    margin-bottom: 40px;
+}
 
 
 /* =========================================
    2. Index 페이지 전용 스타일 (시원한 좌우 분할)
    ========================================= */
-.main-index { display: flex; align-items: center; justify-content: space-between; height: calc(100vh - 85px); max-width: 1200px; margin: 0 auto; padding: 0 50px; }
-
-/* 사라졌던 예시 이미지 주소 복구! */
-.image-box { width: 45%; height: 65vh; background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-.text-box { width: 45%; display: flex; flex-direction: column; justify-content: center; }
-.name { font-size: 56px; font-weight: 800; margin: 0 0 15px 0; letter-spacing: -1px; }
-.index-line { width: 60px; height: 6px; background-color: #007bff; margin-bottom: 30px; }
-
-/* 롤링 애니메이션 */
-.animated-text { font-size: 38px; font-weight: 700; display: flex; align-items: center; margin-bottom: 50px; color: #333; }
-.words-wrapper { margin-left: 15px; height: 50px; overflow: hidden; position: relative; }
-.words { display: flex; flex-direction: column; animation: rollUp 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite; color: #007bff; }
-.words span { height: 50px; line-height: 50px; }
-
-@keyframes rollUp {
-    0%, 25% { transform: translateY(0); }
-    33%, 58% { transform: translateY(-50px); }
-    66%, 91% { transform: translateY(-100px); }
-    100% { transform: translateY(0); }
+.main-index {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100vh - 85px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
 }
 
-.btn-project { display: inline-block; padding: 16px 36px; background-color: #111; color: white; font-size: 18px; font-weight: 600; border-radius: 40px; width: fit-content; transition: all 0.3s ease; }
-.btn-project:hover { background-color: #007bff; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,123,255,0.3); }
+/* 사라졌던 예시 이미지 주소 복구! */
+.image-box {
+    width: 45%;
+    height: 65vh;
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.text-box {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.name {
+    font-size: 56px;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    letter-spacing: -1px;
+}
+
+.index-line {
+    width: 60px;
+    height: 6px;
+    background-color: #007bff;
+    margin-bottom: 30px;
+}
+
+/* 롤링 애니메이션 */
+.animated-text {
+    font-size: 38px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.words-wrapper {
+    margin-left: 15px;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.words {
+    display: flex;
+    flex-direction: column;
+    animation: rollUp 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    color: #007bff;
+}
+
+.words span {
+    height: 50px;
+    line-height: 50px;
+}
+
+@keyframes rollUp {
+
+    0%,
+    25% {
+        transform: translateY(0);
+    }
+
+    33%,
+    58% {
+        transform: translateY(-50px);
+    }
+
+    66%,
+    91% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.btn-project {
+    display: inline-block;
+    padding: 16px 36px;
+    background-color: #111;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 40px;
+    width: fit-content;
+    transition: all 0.3s ease;
+}
+
+.btn-project:hover {
+    background-color: #007bff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
+}
 
 
 /* =========================================
    3. About 페이지 전용 스타일 (세로로 정상 출력)
    ========================================= */
-.main-about { max-width: 800px; margin: 50px auto; padding: 0 20px 100px 20px; }
-.section-title { font-size: 24px; font-weight: 800; margin-top: 50px; margin-bottom: 20px; color: #111; border-bottom: 2px solid #f1f3f5; padding-bottom: 10px; }
-.profile-info { font-size: 16px; line-height: 1.8; color: #444; }
-.profile-info strong { width: 80px; display: inline-block; color: #222; }
-.channels { display: flex; gap: 15px; margin-top: 20px; }
-.btn-channel { padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; color: white; transition: transform 0.3s, opacity 0.3s; }
-.btn-channel:hover { transform: translateY(-3px); opacity: 0.9; }
-.btn-github { background-color: #181717; }
-.btn-blog { background-color: #eb531f; }
-.link-hover { transition: color 0.3s; }
-.link-hover:hover { color: #007bff; text-decoration: underline; }
-.history-list { list-style: none; padding: 0; margin: 0; }
-.history-list li { display: flex; align-items: flex-start; margin-bottom: 15px; line-height: 1.6; }
-.history-list .date { font-weight: 600; color: #007bff; width: 180px; flex-shrink: 0; font-size: 15px; }
-.history-list .desc { font-size: 16px; color: #333; font-weight: 600; }
-.history-list .sub-desc { font-size: 14px; color: #666; font-weight: 400; margin-top: 4px; }
-.tech-stack { margin-top: 20px; }
-.stack-category { margin-bottom: 25px; }
-.stack-category h4 { margin: 0 0 10px 0; font-size: 16px; color: #555; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.main-about {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px 100px 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #111;
+    border-bottom: 2px solid #f1f3f5;
+    padding-bottom: 10px;
+}
+
+.profile-info {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.profile-info strong {
+    width: 80px;
+    display: inline-block;
+    color: #222;
+}
+
+.channels {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-channel {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: white;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.btn-channel:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+}
+
+.btn-github {
+    background-color: #181717;
+}
+
+.btn-blog {
+    background-color: #eb531f;
+}
+
+.link-hover {
+    transition: color 0.3s;
+}
+
+.link-hover:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.history-list .date {
+    font-weight: 600;
+    color: #007bff;
+    width: 180px;
+    flex-shrink: 0;
+    font-size: 15px;
+}
+
+.history-list .desc {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.history-list .sub-desc {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.tech-stack {
+    margin-top: 20px;
+}
+
+.stack-category {
+    margin-bottom: 25px;
+}
+
+.stack-category h4 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
 
 
 /* =========================================
    4. Project 페이지 전용 스타일
    ========================================= */
-.main-project { max-width: 1000px; margin: 50px auto; padding: 0 20px 100px 20px; }
-.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-.card { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: transform 0.3s; border: 1px solid #f1f3f5; }
-.card:hover { transform: translateY(-5px); }
-.card h3 { font-size: 22px; font-weight: 800; margin-top: 0; }
-.card p { color: #666; line-height: 1.6; font-size: 15px; }
-.card ul { padding-left: 20px; color: #555; margin-bottom: 25px; }
-.card ul li { margin-bottom: 8px; font-size: 14px; }
-.btn-link { display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 8px; font-weight: 600; font-size: 14px; transition: background 0.3s; }
-.btn-link:hover { background-color: #0056b3; }
+.main-project {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px 100px 20px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    border: 1px solid #f1f3f5;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-top: 0;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.card ul {
+    padding-left: 20px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.card ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-link:hover {
+    background-color: #0056b3;
+}
 
 /* =========================================
    추가된 Project 페이지 타임라인 & 카드 상세 스타일
@@ -96,15 +384,18 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     justify-content: space-between;
     padding: 0 20px;
 }
+
 .timeline-line {
     position: absolute;
-    top: 52px; /* 회색 점(dot) 높이에 맞춤 */
+    top: 52px;
+    /* 회색 점(dot) 높이에 맞춤 */
     left: 10%;
     right: 10%;
     height: 2px;
     background-color: #999;
     z-index: 1;
 }
+
 .timeline-node {
     position: relative;
     z-index: 2;
@@ -113,15 +404,18 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     align-items: center;
     text-align: center;
     width: 30%;
-    background-color: #fff; /* 선을 가리기 위한 배경 */
+    background-color: #fff;
+    /* 선을 가리기 위한 배경 */
 }
+
 .node-top {
     font-size: 13px;
     color: #666;
     margin-bottom: 10px;
-    height: 38px; 
+    height: 38px;
     line-height: 1.4;
 }
+
 .node-dot {
     width: 14px;
     height: 14px;
@@ -129,18 +423,21 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     border-radius: 50%;
     margin-bottom: 20px;
 }
+
 .node-logo {
     font-weight: 800;
     font-size: 18px;
     margin-bottom: 15px;
     height: 24px;
 }
+
 .node-title {
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 10px;
     color: #333;
 }
+
 .node-desc {
     font-size: 14px;
     color: #666;
@@ -152,6 +449,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     display: flex;
     flex-direction: column;
 }
+
 .card-img {
     width: 100%;
     height: 200px;
@@ -160,68 +458,153 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     border-radius: 10px;
     margin-bottom: 20px;
 }
+
 .card-links {
-    margin-top: auto; /* 버튼들을 카드 하단으로 밀어냄 */
+    margin-top: auto;
+    /* 버튼들을 카드 하단으로 밀어냄 */
     display: flex;
     gap: 10px;
 }
 
 /* 반응형 */
 @media (max-width: 768px) {
+
     /* 공통: 헤더 세로 배치 및 간격 축소 */
-    header { flex-direction: column; padding: 15px 20px; gap: 15px; }
-    .menu ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
-    .title { font-size: 28px; }
+    header {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .menu ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 28px;
+    }
 
     /* Index 페이지: 좌우 분할을 상하 분할로 변경 */
-    .main-index { 
-        flex-direction: column; 
-        height: auto; 
-        padding: 30px 20px; 
-        gap: 30px; 
-        text-align: center; /* 가운데 정렬 */
+    .main-index {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 20px;
+        gap: 30px;
+        text-align: center;
+        /* 가운데 정렬 */
     }
-    .image-box { width: 100%; height: 350px; border-radius: 20px; }
-    .text-box { width: 100%; align-items: center; } /* 텍스트 가운데 정렬 */
-    .name { font-size: 36px; margin-bottom: 10px; }
-    
+
+    .image-box {
+        width: 100%;
+        height: 350px;
+        border-radius: 20px;
+    }
+
+    .text-box {
+        width: 100%;
+        align-items: center;
+    }
+
+    /* 텍스트 가운데 정렬 */
+    .name {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
     /* 애니메이션 글자 크기 축소 */
-    .animated-text { font-size: 24px; justify-content: center; margin-bottom: 30px; }
-    .words-wrapper { height: 35px; }
-    .words span { height: 35px; line-height: 35px; }
-    
+    .animated-text {
+        font-size: 24px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .words-wrapper {
+        height: 35px;
+    }
+
+    .words span {
+        height: 35px;
+        line-height: 35px;
+    }
+
     /* 모바일용 애니메이션 높이 재설정 */
     @keyframes rollUp {
-        0%, 25% { transform: translateY(0); }
-        33%, 58% { transform: translateY(-35px); }
-        66%, 91% { transform: translateY(-70px); }
-        100% { transform: translateY(0); }
+
+        0%,
+        25% {
+            transform: translateY(0);
+        }
+
+        33%,
+        58% {
+            transform: translateY(-35px);
+        }
+
+        66%,
+        91% {
+            transform: translateY(-70px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
     }
-   
+
 
     /* About 페이지: 여백 줄이고 타임라인 세로로 변경 */
-    .main-about { padding: 0 15px 50px 15px; margin-top: 20px; }
-    .history-list li { flex-direction: column; margin-bottom: 25px; }
-    .history-list .date { width: auto; margin-bottom: 5px; font-size: 14px; }
-    .profile-info { font-size: 14px; }
-    .btn-channel { padding: 8px 15px; font-size: 13px; }
+    .main-about {
+        padding: 0 15px 50px 15px;
+        margin-top: 20px;
+    }
+
+    .history-list li {
+        flex-direction: column;
+        margin-bottom: 25px;
+    }
+
+    .history-list .date {
+        width: auto;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .profile-info {
+        font-size: 14px;
+    }
+
+    .btn-channel {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
 
     /* 기술 스택 배지 정렬 */
-    .tags { justify-content: flex-start; }
+    .tags {
+        justify-content: flex-start;
+    }
 
     /* Project 페이지: 2칸 카드를 1칸으로 변경 */
-    .main-project { padding: 0 15px 50px 15px; margin-top: 20px; }
-    .project-grid { grid-template-columns: 1fr; gap: 20px; }
+    .main-project {
+        padding: 0 15px 50px 15px;
+        margin-top: 20px;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 
 
 
-   /* 모바일 타임라인 (세로형 변환) */
+    /* 모바일 타임라인 (세로형 변환) */
     .project-timeline-wrapper {
         flex-direction: column;
         align-items: flex-start;
         gap: 30px;
         padding-left: 30px;
     }
+
     .timeline-line {
         top: 0;
         bottom: 0;
@@ -229,24 +612,53 @@ header { display: flex; justify-content: space-between; align-items: center; pad
         width: 2px;
         height: auto;
     }
+
     .timeline-node {
         width: 100%;
         flex-direction: row;
         text-align: left;
         background: transparent;
     }
-    .node-top { height: auto; width: 120px; margin-bottom: 0; padding-right: 15px; }
-    .node-dot { margin: 0 15px 0 0; position: relative; left: -10px; }
-    .node-logo, .node-title, .node-desc { margin-bottom: 5px; }
-    .node-logo { display: none; /* 모바일에서는 깔끔함을 위해 로고 생략 */ }
-    .node-desc { br { display: none; } } /* 모바일에서는 줄바꿈 무시 */
+
+    .node-top {
+        height: auto;
+        width: 120px;
+        margin-bottom: 0;
+        padding-right: 15px;
+    }
+
+    .node-dot {
+        margin: 0 15px 0 0;
+        position: relative;
+        left: -10px;
+    }
+
+    .node-logo,
+    .node-title,
+    .node-desc {
+        margin-bottom: 5px;
+    }
+
+    .node-logo {
+        display: none;
+        /* 모바일에서는 깔끔함을 위해 로고 생략 */
+    }
+
+    .node-desc {
+        br {
+            display: none;
+        }
+    }
+
+    /* 모바일에서는 줄바꿈 무시 */
 }
 
 /* =========================================
    5. 모달(Modal) 스타일
    ========================================= */
 .modal {
-    display: none; /* 기본적으로 숨김 */
+    display: none;
+    /* 기본적으로 숨김 */
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -254,7 +666,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
 }
 
@@ -266,13 +678,20 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     width: 80%;
     max-width: 900px;
     position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     animation: modalFadeIn 0.3s ease-out;
 }
 
 @keyframes modalFadeIn {
-    from { transform: translateY(-30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .close-button {
@@ -324,21 +743,18 @@ header { display: flex; justify-content: space-between; align-items: center; pad
     border-radius: 2px;
 }
 
-.overview-content {
-    line-height: 1.8;
-    color: #555;
-    font-size: 16px;
-}
+
 
 /* 반응형 비디오 컨테이너 */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 비율 */
+    padding-bottom: 56.25%;
+    /* 16:9 비율 */
     height: 0;
     overflow: hidden;
     border-radius: 12px;
     background-color: #000;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .video-container iframe {
@@ -357,6 +773,7 @@ header { display: flex; justify-content: space-between; align-items: center; pad
         margin: 10% auto;
         padding: 25px;
     }
+
     .modal-content h2 {
         font-size: 22px;
     }

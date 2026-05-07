@@ -4,10 +4,10 @@ async function loadHeader() {
         // GitHub Pages 경로 문제를 방지하기 위해 절대 경로 방식 권장
         const response = await fetch('header.html');
         if (!response.ok) throw new Error('네트워크 응답이 올바르지 않습니다.');
-        
+
         const data = await response.text();
         document.getElementById('header-container').innerHTML = data;
-        
+
         // 헤더 로드 완료 후 현재 메뉴 활성화 실행
         setActiveMenu();
     } catch (error) {
@@ -42,7 +42,7 @@ function initProjectModal() {
     if (!modal) return;
 
     const modalTitle = document.getElementById('modal-title');
-    const modalOverview = document.getElementById('modal-overview');
+
     const modalVideoContainer = document.getElementById('modal-video-container');
     const closeButton = document.querySelector('.close-button');
     const readMoreBtns = document.querySelectorAll('.btn-read-more');
@@ -51,17 +51,17 @@ function initProjectModal() {
     const projectData = {
         'sto': {
             title: 'STO Project',
-            overview: '', // 비워둠
+
             videoUrl: 'https://www.youtube.com/embed/MlunL9xoCPI'
         },
         'books': {
             title: 'SecondHandBooks',
-            overview: '', // 비워둠
+
             videoUrl: 'https://www.youtube.com/embed/bUNw9EWqAn8'
         },
         'tripton': {
             title: 'TripToN',
-            overview: '', // 비워둠
+
             videoUrl: '' // 시연 영상 없음
         }
     };
@@ -74,8 +74,8 @@ function initProjectModal() {
 
             if (data) {
                 modalTitle.innerText = data.title;
-                modalOverview.innerText = data.overview;
-                
+
+
                 if (data.videoUrl) {
                     modalVideoContainer.innerHTML = `<iframe src="${data.videoUrl}" allowfullscreen></iframe>`;
                 } else {
