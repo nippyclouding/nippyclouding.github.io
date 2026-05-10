@@ -62,7 +62,7 @@ function initProjectModal() {
         'tripton': {
             title: 'TripToN',
 
-            videoUrl: 'https://youtu.be/wkFMnX2pCsY'
+            videoUrl: 'https://www.youtube.com/embed/wkFMnX2pCsY'
         }
     };
 
