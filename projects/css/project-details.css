@@ -1,0 +1,141 @@
+/* projects/css/project-details.css */
+
+.pd-subtext {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.pd-text-muted {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.pd-heading-h5 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 1.05em;
+}
+
+.pd-list-main {
+    margin-top: 8px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.pd-list-spaced {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.pd-list-spaced-lg {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.pd-list-regular {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.pd-list-square {
+    margin-top: 5px;
+    padding-left: 20px;
+    font-size: 0.9em;
+    color: #555;
+    list-style-type: square;
+}
+
+.pd-list-nested {
+    margin-top: 3px;
+    list-style-type: disc;
+}
+
+.pd-list-item {
+    margin-bottom: 10px;
+}
+
+.pd-list-item-sm {
+    margin-bottom: 8px;
+}
+
+.pd-list-item-xs {
+    margin-bottom: 5px;
+}
+
+.pd-list-item-mt {
+    margin-top: 10px;
+}
+
+.pd-list-item-flex {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pd-btn-erd-sm {
+    background-color: #007bff;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    line-height: 1;
+}
+
+.pd-btn-erd-lg {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    display: inline-block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.pd-img-wrapper {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.pd-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.pd-img-full {
+    width: 100%;
+    display: block;
+    margin: 25px 0;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.pd-mt-15 {
+    margin-top: 15px;
+}
+
+.pd-p-mt {
+    margin-top: 10px;
+}
+
+.pd-code-block {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    font-size: 0.9em;
+    overflow-x: auto;
+    color: #d63384;
+    font-family: Consolas, monospace;
+}

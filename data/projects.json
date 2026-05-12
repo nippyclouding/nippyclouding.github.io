@@ -1,0 +1,20 @@
+{
+  "sto": {
+    "title": "STO Project",
+    "githubUrl": "https://github.com/nippyclouding/STO",
+    "videoUrl": "https://www.youtube.com/embed/MlunL9xoCPI",
+    "contentUrl": "projects/html/sto.html"
+  },
+  "books": {
+    "title": "SecondHandBooks",
+    "githubUrl": "https://github.com/nippyclouding/secondary-book",
+    "videoUrl": "https://www.youtube.com/embed/bUNw9EWqAn8",
+    "contentUrl": "projects/html/secondhandsbook.html"
+  },
+  "tripton": {
+    "title": "TripToN",
+    "githubUrl": "https://github.com/nippyclouding/trip-to-n",
+    "videoUrl": "https://www.youtube.com/embed/wkFMnX2pCsY",
+    "contentUrl": "projects/html/tripton.html"
+  }
+}
