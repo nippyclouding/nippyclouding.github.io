@@ -66,7 +66,7 @@ async function initProjectModal() {
             const data = projectData[projectId];
 
             if (data) {
-                modalTitle.innerText = data.title;
+                modalTitle.innerHTML = data.title;
                 modalBodyContent.innerHTML = '<p style="text-align: center; padding: 20px;">로딩 중...</p>'; // 로딩 표시
                 modalVideoContainer.innerHTML = '';
 
