@@ -65,7 +65,7 @@
 </div>
 
 <div class="modal-section">
-    <h3>페어 프로그래밍 및 협업</h3>
+    <h3>페어 프로그래밍</h3>
     <div class="modal-content-body">
         <p>이 프로젝트는 크게 두 가지 핵심 도메인으로 나뉩니다.</p>
         <ul class="pd-list-spaced">
@@ -76,6 +76,43 @@
             각 팀은 프론트엔드 엔지니어 1명과 백엔드 엔지니어 2명으로 구성되어 개발을 진행하였습니다.</p>
         <p>개발 과정에서는 도메인 단위로 긴밀하게 소통하며 페어 프로그래밍과 상호 PR 리뷰를 적극적으로 진행했습니다.<br>
             이를 통해 복잡한 코드 흐름을 명확히 공유하고, API 설계 시 발생할 수 있는 병목을 사전에 방지하여 프로젝트의 완성도를 높였습니다.</p>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3>중고책 거래 파이프라인</h3>
+    <div class="modal-content-body">
+        <div
+            style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center; font-weight: bold; color: #333; word-break: keep-all;">
+            중고책 거래글 등록 &rarr; 구매자와 판매자 간 1:1 채팅 &rarr; 안전 결제 &rarr; 판매 대금 정산
+        </div>
+
+        <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">안전 결제</h4>
+        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">safe_payment_st = NONE, PENDING, COMPLETED</p>
+        <div class="pd-img-wrapper" style="margin-bottom: 40px;">
+            <img src="project_image/secondhandbooks_image/안전결제_시퀀스다이어그램.png" alt="안전결제 시퀀스 다이어그램" class="pd-img-full"
+                style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        </div>
+
+        <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">판매 대금 정산</h4>
+        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">settlement_st = NONE, READY, REQUESTED, COMPLETED</p>
+        <div style="display: flex; justify-content: space-between; gap: 15px;">
+            <div style="flex: 1; text-align: center;">
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 1 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(NONE &rarr; READY)</span></h5>
+                <img src="project_image/secondhandbooks_image/정산1_시퀀스다이어그램.png" alt="정산 1"
+                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 2 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(READY &rarr; REQUESTED)</span></h5>
+                <img src="project_image/secondhandbooks_image/정산2_시퀀스다이어그램.png" alt="정산 2"
+                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+            <div style="flex: 1; text-align: center;">
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 3 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(REQUESTED &rarr; COMPLETED)</span></h5>
+                <img src="project_image/secondhandbooks_image/정산3_시퀀스다이어그램.png" alt="정산 3"
+                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            </div>
+        </div>
     </div>
 </div>
 
@@ -158,14 +195,7 @@
             </li>
         </ul>
         <hr>
-        <h4>3. 안전결제 전달 및 완료 처리 시 비인가 요청 차단</h4>
-        <p>안전결제 요청과 완료 처리를 모두 조건부 UPDATE로 설계해, 애플리케이션 검증뿐 아니라 DB 레벨에서도 안전결제를 선점한 구매자만 결제를 진행할 수 있도록 했습니다.</p>
-        <pre class="pd-code-block"><code>WHERE trade_seq = ?
-  AND safe_payment_st = 'PENDING'
-  AND pending_buyer_seq = ?</code></pre>
-        <p class="pd-list-item-mt">조건부 UPDATE를 통해 안전결제를 선점한 사용자만 결제를 완료할 수 있도록 처리했습니다.</p>
-        <hr>
-        <h4>4. Redis Pub/Sub 도입 배경 - 멀티 서버 환경에서의 실시간 채팅 문제</h4>
+        <h4>3. Redis Pub/Sub 도입 배경 - 멀티 서버 환경에서의 실시간 채팅 문제</h4>
         <p>Auto Scaling 환경에서 WAS 인스턴스가 2대로 늘어난 뒤 1:1 채팅 메시지가 실시간으로 전달되지 않는 문제가 발생했습니다. 원인은 WebSocket 세션이 각 서버 메모리에 로컬로
             유지되어, 한 서버에서 전송한 STOMP 메시지가 다른 서버에 연결된 사용자에게 전달되지 않는 구조였습니다.</p>
         <p>이를 해결하기 위해 Redis Pub/Sub을 도입했습니다. 채팅 메시지를 Redis 채널에 publish하고 모든 WAS 인스턴스가 해당 채널을 subscribe하도록 구성하여, 어느 서버에서

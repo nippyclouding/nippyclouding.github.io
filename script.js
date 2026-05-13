@@ -116,6 +116,35 @@ async function initProjectModal() {
         });
     });
 
+    // 이미지 라이트박스 로직
+    const imageLightbox = document.getElementById('image-lightbox');
+    const imageLightboxImg = document.getElementById('image-lightbox-img');
+    const imageLightboxClose = document.querySelector('.image-lightbox-close');
+
+    if (modalBodyContent && imageLightbox && imageLightboxImg && imageLightboxClose) {
+        // 이미지 클릭 시 라이트박스 열기 (이벤트 위임)
+        modalBodyContent.addEventListener('click', (event) => {
+            if (event.target.tagName === 'IMG') {
+                imageLightboxImg.src = event.target.src;
+                imageLightbox.classList.add('show');
+            }
+        });
+
+        // 닫기 버튼 클릭 시 라이트박스 닫기
+        imageLightboxClose.addEventListener('click', () => {
+            imageLightbox.classList.remove('show');
+            setTimeout(() => imageLightboxImg.src = '', 300);
+        });
+
+        // 배경 클릭 시 라이트박스 닫기
+        imageLightbox.addEventListener('click', (event) => {
+            if (event.target === imageLightbox) {
+                imageLightbox.classList.remove('show');
+                setTimeout(() => imageLightboxImg.src = '', 300);
+            }
+        });
+    }
+
     // 모달 닫기 (X 버튼)
     closeButton.addEventListener('click', () => {
         closeModal();
