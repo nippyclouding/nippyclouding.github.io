@@ -3,13 +3,34 @@
     <div class="modal-content-body">
         <p><strong>개발 인원 : 5명</strong><br>프론트엔드 2명, 백엔드 3명</p>
         <p><strong>개발 환경</strong><br>
-            Java 21, PostreSQL, Redis 8<br>
-            Spring Boot 3 with JPA (Spring Data JPA, QueryDSL)<br>
+            Java 21, PostgreSQL, Redis 8<br>
+            Backend : Spring Boot 3 with JPA (Spring Data JPA, QueryDSL)<br>
+            Frontend : React Vite 19 (CSR)<br>
             Auth : JWT Tokens<br>
             Real-Time : STOMP<br>
-            Docker, NginX, React Vite 19 (CSR)<br>
+            Docker, NginX<br>
             신한 DS 서버 내부망 배포 (<a href="https://sto.shinhanacademy.co.kr/" target="_blank"
                 class="link-hover">https://sto.shinhanacademy.co.kr/</a>)</p>
+
+        <div class="pd-access-info">
+            <div class="pd-access-title">서비스 접속 정보</div>
+            <div class="pd-access-grid">
+                <div class="pd-access-row">
+                    <span class="pd-access-label">일반 계정</span>
+                    <div class="pd-access-value">
+                        ID: <code>kim1@gmail.com</code> / PW: <code>asdfasdf</code>
+                    </div>
+                </div>
+                <div class="pd-access-row">
+                    <span class="pd-access-label">Admin 계정</span>
+                    <div class="pd-access-value">
+                        <a href="https://sto.shinhanacademy.co.kr/admin-console" target="_blank" class="link-hover"
+                            style="font-weight: 700; color: #007bff;">[관리자 콘솔 접속]</a>
+                        <span>ID: <code>admin</code> / PW: <code>qjarms98#</code></span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -20,31 +41,26 @@
         <div class="pd-subtext">
             <p>Spring Boot 기반 백엔드 개발 및 멀티 서버 아키텍쳐 설계</p>
             <ul class="pd-list-main">
-                <li>ERD 및 API 공동 설계</li>
-                <li>예외 계층화 (ErrorCode), 컨트롤러 예외 처리 (Rest Controller Advice) 등 팀 전용 예외 설계, 구현</li>
-                <li>팀 전용 코드 컨벤션 수립 (Naming Convention)</li>
-                <li>멀티 서버 아키텍처 설계 [main 서버, match 서버, batch 서버]</li>
+                <li>
+                    ERD 및 API 공동 설계
+                    <a href="https://www.erdcloud.com/d/dWbsqdTWfGQ8Fye8v" target="_blank"
+                        class="btn-link pd-btn-erd-sm" style="margin-left: 8px;">
+                        ERD 상세 보기 &rarr;
+                    </a>
+                </li>
+                <li>팀 내 코드 컨벤션과 예외 처리 구조를 정의하고, Validation·Dirty Checking 기반의 일관된 백엔드 개발 규칙을 적용했습니다.</li>
                 <li>백엔드 개발 - STO 메인 페이지(STO 전체 리스트 구현), 상세 페이지 (캔들 차트, 호가창, 체결 완료 내역 등을 실시간으로 구현)</li>
                 <li>금융 관련 중요 정보(호가/주문, 주문 체결 결과) 이중 저장을 위한 백업 테이블 설계 및 구현</li>
+                <li>멀티 서버 아키텍처 설계 [main 서버, match 서버, batch 서버]</li>
             </ul>
+            <div class="pd-img-wrapper">
+                <img src="project_image/sto_image/SystemArchitecture.png" alt="System Architecture" class="pd-img">
+            </div>
         </div>
     </div>
 </div>
 
-<div class="modal-section">
-    <h3>팀 전용 코드 컨벤션</h3>
-    <div class="modal-content-body">
-        <ul class="pd-list-spaced">
-            <li><strong>공통 필드 관리:</strong> 생성일, 수정일이 모두 필요한 경우 <code>BaseEntity</code>를 상속, 생성일만 필요한 엔티티는 클래스 내부에 직접 정의
-            </li>
-            <li><strong>엔티티 연관관계:</strong> 가급적 단방향으로 설계하며, 양방향 필요 시 팀원과 사전 협의 후 개발</li>
-            <li><strong>메서드 네이밍:</strong> 계층별 역할에 맞춰 분리 (Repository는 JPA 스펙, Service는 비즈니스 로직 중심)</li>
-            <li><strong>요청 데이터 검증:</strong> 클라이언트 요청(Request DTO) 데이터는 철저하게 Validation 검증 수행</li>
-            <li><strong>API 응답 타입 통일:</strong> REST API 응답은 일관되게 <code>ResponseEntity</code> 타입으로 반환 처리</li>
-            <li><strong>엔티티 수정 방식:</strong> 단일 업데이트 시 <code>save()</code> 대신 JPA 변경 감지(Dirty Checking) 활용</li>
-        </ul>
-    </div>
-</div>
+
 <div class="modal-section">
     <h3>기술적 선택 근거</h3>
     <div class="modal-content-body">
@@ -64,40 +80,55 @@
             이를 위해 Redis Pub/Sub을 도입했습니다. Match 서버는 체결 결과와 호가 변경 이벤트를 Redis 채널로 publish하고, Main 서버는 이를 subscribe하여
             WebSocket/STOMP를 통해 클라이언트에게 전달하도록 구성했습니다.<br>
             이 구조를 통해 서버 간 결합도를 낮추면서도 체결 결과, 호가창, 캔들 차트, 관리자 대시보드가 실시간으로 갱신되도록 구현했습니다.</p>
-        <p>프로젝트는 신한 DS 내부망의 제한된 배포 환경에서 운영되었고, 팀별로 단일 서버를 제공받는 조건이 있었습니다. 하나의 서버 안에서 Main 서버, Match 서버, Batch 서버,
-            PostgreSQL, Redis, Nginx를 함께 실행해야 했기 때문에 Docker를 사용했습니다.<br>
-            각 서비스를 컨테이너 단위로 분리하여 실행 환경을 독립적으로 관리했고, 로컬 개발 환경과 배포 환경의 차이를 줄일 수 있도록 구성했습니다. 또한 Docker Compose를 통해 여러 서비스를
-            한 번에 실행하고, 서비스 간 네트워크와 환경변수를 일관되게 관리할 수 있도록 했습니다.</p>
-        <p>프론트엔드는 React + Vite 기반의 CSR 구조로 구현했습니다. 서버가 화면 렌더링을 담당하지 않고 API 중심으로 동작하기 때문에, 서버 세션에 인증 상태를 저장하는 방식보다
-            stateless한 JWT 인증 방식이 적합하다고 판단했습니다.<br>
-            JWT를 사용해 로그인 이후 클라이언트가 access token을 보관하고, API 요청 시 Authorization 헤더로 전달하도록 구성했습니다. 이를 통해 Main 서버는 세션 저장소에
-            의존하지 않고 요청 단위로 인증을 검증할 수 있었고, 향후 서버 확장 시에도 인증 상태 공유에 대한 부담을 줄일 수 있었습니다.</p>
-        <p>메인 페이지와 관리자 페이지에서는 토큰 목록을 단순 조회하는 것뿐 아니라 거래대금순, 거래량순, 가격 변동률, 키워드 검색 등 다양한 조건에 따라 동적으로 조회해야 했습니다.<br>
-            Spring Data JPA의 기본 메서드 쿼리만으로는 조건 조합이 많아질수록 메서드가 과도하게 늘어나고, 문자열 기반 JPQL은 컴파일 시점에 오류를 잡기 어렵다고 판단했습니다. 그래서
-            QueryDSL을 사용해 타입 안전한 방식으로 동적 쿼리를 구성했습니다.<br>
-            이를 통해 검색 조건과 정렬 조건을 조합하면서도 쿼리 로직을 명확하게 유지할 수 있었고, 조회 기능의 확장성과 유지보수성을 높일 수 있었습니다.</p>
-        <p>프론트엔드와 백엔드가 분리된 구조였기 때문에 API 명세를 명확하게 공유하는 것이 중요했습니다. 특히 주문, 자산 등록, 관리자 기능처럼 요청/응답 DTO가 복잡한 API가 많아 구두 공유나 별도
-            문서만으로는 커뮤니케이션 비용이 커질 수 있다고 판단했습니다.<br>
-            Swagger를 도입해 백엔드 API 명세를 자동 문서화했고, 프론트엔드 개발자가 엔드포인트, 요청 파라미터, 응답 구조를 직접 확인할 수 있도록 했습니다. 이를 통해 API 변경 시 소통
-            비용을 줄이고, 프론트-백엔드 간 연동 과정에서 발생하는 오해를 줄일 수 있었습니다.</p>
+        <p>Docker Compose 기반으로 Main·Match·Batch 서버와 PostgreSQL, Redis, Nginx를 컨테이너 환경으로 구성해 배포 환경을 통합 관리했습니다.</p>
+        <p>React 기반 CSR 구조에 맞춰 JWT 기반 Stateless 인증 방식을 적용했습니다.</p>
+        <p>QueryDSL 기반 동적 쿼리를 적용해 거래량·거래대금·가격 변동률 등 다양한 정렬 조건을 확장 가능하게 구현했습니다.</p>
+        <p>Swagger를 활용해 API 명세를 자동화하고 프론트엔드와 협업 효율을 높였습니다.</p>
     </div>
 </div>
 
 <div class="modal-section">
-    <h3>성능 개선</h3>
+    <h3>블록체인 설계</h3>
+    <div class="modal-content-body">
+        <p>오프체인(DB)·온체인(블록체인) 하이브리드 구조를 적용해, 주문 매칭·정산·잔고 반영은 DB에서 우선 처리하고 체결 결과만 블록체인에 기록하도록 설계했습니다. 이를 통해 블록체인의 느린 처리
+            속도와 높은 비용 문제를 보완하면서도, 체결 이력의 무결성과 추적 가능성을 확보했습니다.</p>
+        <p>Ethereum Sepolia 테스트넷 환경에서 ERC-20 표준 기반의 STO 토큰 컨트랙트를 배포했으며, 체결 발생 시 메인 서버가 DB 정산을 완료한 뒤 Outbox Queue에 거래 정보를
+            적재하도록 구성했습니다. 이후 Batch 서버가 10초 주기로 Queue를 읽어 스마트컨트랙트의 recordTrade()를 호출해 거래 이벤트를 기록하고, 트랜잭션 해시·블록번호·가스 사용량
+            등을 저장해 온체인 기록 상태를 관리했습니다. 또한 재시도 및 상태 동기화 로직을 구현해 블록체인 기록 안정성을 높이고, 관리자 대시보드에서 실시간 정산 및 온체인 기록 현황을 조회할 수 있도록
+            구성했습니다.</p>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <img src="project_image/sto_image/blockchain.png" alt="Blockchain"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <img src="project_image/sto_image/flowchart.png" alt="흐름도"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.9em; color: #666; margin-top: 10px; font-weight: 600;">흐름도</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3>문제와 해결</h3>
     <div class="modal-content-body">
         <h4>1. 실시간 캔들 차트(Live Candle) 동기화 아키텍처 설계</h4>
         <p>토큰 상세 페이지의 핵심 기능인 캔들 차트를 구현하며, '현재 진행 중인 시간대'의 실시간 데이터 동기화 문제에 직면했습니다.<br>
-            예를 들어 사용자가 <strong>'2026년 1월 10일 오전 10시 23분 40초'</strong>에 상세 페이지에 접근했다고 가정할 때, 22분, 21분, 20분 등 과거 완성된 캔들 차트는 데이터베이스에서 조회하면 됩니다.<br>
-            하지만 <strong>'23분'</strong>대(접속한 시간대)의 캔들 데이터는 23분이 완전히 지나고 24분 00초가 되어야 DB에 저장됩니다. 그렇다면 '23분 40초'에 접속한 사용자는 아직 DB에 없는 '23분 00초 ~ 23분 40초' 사이의 캔들 차트 데이터를 어떻게 조회해야 하는지가 핵심 난제였습니다.<br>
-            이에 현업 멘토님과의 심도 있는 자문과 논의를 거쳐, 23분 00초 ~ 24분 00초 동안 체결되는 데이터를 실시간으로 보관하는 메모리 자료구조인 <code>CandleLiveManager</code>(ConcurrentHashMap 기반, Key = 토큰 ID, Value = LiveCandleDTO)를 설계했습니다.<br>
-            이 구조를 통해 사용자가 '10시 23분 40초'에 접속하면 22분 이전의 과거 데이터는 DB에서 조회하고, 23분대의 실시간 라이브 데이터는 <code>CandleLiveManager</code>에서 Key 값으로 즉시 조회해 조합하는 하이브리드 조회 구조를 완성할 수 있었습니다.<br>
-            이 과정을 통해 낯선 도메인의 아키텍처 한계에 부딪혔을 때, 스스로 문제를 명확히 정리한 뒤 시니어에게 자문을 구하는 커뮤니케이션과 문제 해결 방식의 중요성을 깊이 체감했습니다.</p>
+            예를 들어 사용자가 <strong>'2026년 1월 10일 오전 10시 23분 40초'</strong>에 상세 페이지에 접근했다고 가정할 때, 22분, 21분, 20분 등 과거 완성된 캔들
+            차트는 데이터베이스에서 조회하면 됩니다.<br>
+            하지만 <strong>'23분'</strong>대(접속한 시간대)의 캔들 데이터는 23분이 완전히 지나고 24분 00초가 되어야 DB에 저장됩니다. 그렇다면 '23분 40초'에 접속한 사용자는
+            아직 DB에 없는 '23분 00초 ~ 23분 40초' 사이의 캔들 차트 데이터를 어떻게 조회해야 하는지가 핵심 난제였습니다.<br>
+            이에 현업 멘토님과의 심도 있는 자문과 논의를 거쳐, 23분 00초 ~ 24분 00초 동안 체결되는 데이터를 실시간으로 보관하는 메모리 자료구조인
+            <code>CandleLiveManager</code>(ConcurrentHashMap 기반, Key = 토큰 ID, Value = LiveCandleDTO)를 설계했습니다.<br>
+            이 구조를 통해 사용자가 '10시 23분 40초'에 접속하면 22분 이전의 과거 데이터는 DB에서 조회하고, 23분대의 실시간 라이브 데이터는
+            <code>CandleLiveManager</code>에서 Key 값으로 즉시 조회해 조합하는 하이브리드 조회 구조를 완성할 수 있었습니다.<br>
+            이 과정을 통해 낯선 도메인의 아키텍처 한계에 부딪혔을 때, 스스로 문제를 명확히 정리한 뒤 시니어에게 자문을 구하는 커뮤니케이션과 문제 해결 방식의 중요성을 깊이 체감했습니다.
+        </p>
         <hr>
         <h4>2. QueryDSL 기반 토큰 목록 정렬 확장성 개선</h4>
         <p>메인 페이지 토큰 목록은 기본 조회 외에 거래대금순, 거래량순 정렬 기능이 필요했습니다.<br>
-            초기에는 각 정렬마다 별도 API를 분리하는 방식을 고려했으나, 향후 등락률순, 시가총액순 등 조건이 추가될 경우를 대비해 <code>selectType</code> 파라미터 기반의 동적 조회 구조로 설계했습니다.<br>
-            QueryDSL을 활용하여 파라미터에 따라 집계 기준을 동적으로 변경하고 DB 레벨에서 정렬과 페이징을 처리하도록 구현함으로써, 무분별한 중복 API 생성을 방지하고 메인 페이지 조회 로직의 확장성을 크게 높였습니다.</p>
+            초기에는 각 정렬마다 별도 API를 분리하는 방식을 고려했으나, 향후 등락률순, 시가총액순 등 조건이 추가될 경우를 대비해 <code>selectType</code> 파라미터 기반의 동적 조회
+            구조로 설계했습니다.<br>
+            QueryDSL을 활용하여 파라미터에 따라 집계 기준을 동적으로 변경하고 DB 레벨에서 정렬과 페이징을 처리하도록 구현함으로써, 무분별한 중복 API 생성을 방지하고 메인 페이지 조회 로직의
+            확장성을 크게 높였습니다.</p>
     </div>
 </div>
 
@@ -116,11 +147,14 @@
         <h4>금융 도메인 이해와 구현의 차이</h4>
         <p>전공 지식이 있음에도 실시간 캔들 차트 로직 등을 구현하며 사용자로서 아는 것과 개발자로서 구현하는 것의 깊이 차이를 체감했습니다.<br>
             금융 서비스 개발에서는 기능 구현 능력만큼이나 도메인 개념에 대한 정확한 분석과 이해가 선행되어야 한다는 점을 느꼈습니다.</p>
+        <p class="pd-subtext" style="font-size: 0.85em;">프로젝트를 진행하며 공부한 금융 도메인 기록 - <a
+                href="https://hypnotic-mayonnaise-5c3.notion.site/341319fec6fe8018808ece379b646aee?source=copy_link"
+                target="_blank" class="link-hover">Notion 링크 바로가기</a></p>
         <hr>
         <h4>초기 설계의 중요성 체감</h4>
         <p>평소 계획적인 성격으로 일정이 지연되는 것을 경계하는 편입니다. 프로젝트 초반, 난이도 높은 ERD 설계로 일정이 늦어지자 팀원들에게 '개발을 병행하며 수정하자'고 제안하며 팀원들과 갈등을 겪기도
             했습니다.<br>
             하지만 막상 개발에 착수해보니, 탄탄한 설계 덕분에 엔티티 구현과 로직 개발 시 구조적 고민 없이 속도를 낼 수 있었습니다. 무조건 빠른 시작보다 '제대로 된 설계'가 최종 개발 시간을
-            단축시킨다는 진정한 의미를 체감한 계기가 되었습니다.</p>
+            단축시킨다는 것을 체감하게 되었습니다.</p>
     </div>
 </div>
