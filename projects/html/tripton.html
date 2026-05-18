@@ -28,7 +28,7 @@
             <div class="pd-img-wrapper">
                 <img src="project_image/tripton_image/erd_systemArchitecture.png" alt="System Architecture and ERD" class="pd-img">
                 <div class="pd-mt-15">
-                    <a href="https://www.erdcloud.com/d/n5g78GXYfmokFXqiN" target="_blank" class="btn-link" class="pd-btn-erd-lg">
+                    <a href="https://www.erdcloud.com/d/n5g78GXYfmokFXqiN" target="_blank" class="btn-link pd-btn-erd-lg">
                         ERD 상세 보기 &rarr;
                     </a>
                 </div>
@@ -59,6 +59,54 @@
         따라서 기능별 API를 분리하여 필요한 데이터만 조회하도록 구성했고,<br>
         페이지 이동 시에도 관련 데이터만 요청되도록 개선했습니다.<br>
         이를 통해 응답 구조를 단순화하고 유지보수성을 높일 수 있었습니다.</p>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3>Home Server 구축</h3>
+    <div class="modal-content-body">
+        <p>개발 당시 서비스 인프라 구축은 AWS 환경이었지만, 이후 현재는 Mac mini M1 기반 홈서버를 구축해 포트폴리오 전용 접속을 구성하고 있습니다.</p>
+        <p>Mac mini가 꺼져 있거나 외부 IP가 변동된 경우, 링크 접속이 불가능할 수 있습니다.</p>
+        
+        <div class="pd-mt-15" style="margin-bottom: 20px;">
+            <a href="http://175.211.42.44:8085/" target="_blank" class="btn-link pd-btn-erd-lg">
+                http://175.211.42.44:8085/ &rarr;
+            </a>
+        </div>
+
+        <div class="pd-access-info">
+            <div class="pd-access-title">테스트 계정 안내</div>
+            <p style="font-size: 13.5px; color: #555; margin-bottom: 12px; margin-top: 0;">
+                서비스 체험을 위해 사이드바의 [Enter] 메뉴를 클릭한 뒤, 아래 테스트 계정으로 로그인하시면 서비스를 직접 이용해 보실 수 있습니다.
+            </p>
+            <div class="pd-access-grid" style="margin-bottom: 20px;">
+                <div class="pd-access-row">
+                    <span class="pd-access-label">일반 계정</span>
+                    <span class="pd-access-value">ID : <code>hello@gmail.com</code> &nbsp;/&nbsp; PW : <code>hello</code></span>
+                </div>
+            </div>
+
+            <div class="pd-access-title" style="border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: 15px;">관리자 계정 안내</div>
+            <p style="font-size: 13.5px; color: #555; margin-bottom: 12px; margin-top: 0;">
+                아래 관리자 전용 콘솔 링크로 접속하여 관리자 계정을 입력하시면 회원 상태 조회 및 고민 목록 관리 등 전체 어드민 패널을 직접 체험해 보실 수 있습니다.
+            </p>
+            <div class="pd-access-grid" style="margin-bottom: 15px;">
+                <div class="pd-access-row">
+                    <span class="pd-access-label">관리자 링크</span>
+                    <span class="pd-access-value">
+                        <a href="http://175.211.42.44:8085/admin-console" target="_blank" style="color: #007bff; font-weight: bold; text-decoration: underline;">
+                            http://175.211.42.44:8085/admin-console &rarr;
+                        </a>
+                    </span>
+                </div>
+                <div class="pd-access-row">
+                    <span class="pd-access-label">로그인 정보</span>
+                    <span class="pd-access-value">ID : <code>wonderwall09in</code> &nbsp;/&nbsp; PW : <code>wonderwall09in</code></span>
+                </div>
+            </div>
+        </div>
+
+        <img src="project_image/home-server.png" alt="Home Server" class="pd-img-full">
     </div>
 </div>
 
