@@ -16,8 +16,7 @@
             <ul class="pd-list-main">
                 <li>
                     ERD 및 API 공동 설계
-                    <a href="https://www.erdcloud.com/d/hHEF9MxFtqDsgh9ks" target="_blank"
-                        class="btn-link pd-btn-erd-sm" style="margin-left: 8px;">
+                    <a class="btn-link pd-btn-erd-sm pd-ml-8" href="https://www.erdcloud.com/d/hHEF9MxFtqDsgh9ks" target="_blank">
                         ERD 상세 보기 &rarr;
                     </a>
                 </li>
@@ -45,7 +44,7 @@
             <li><strong>AWS 멀티 서버 아키텍처 구축</strong> : 트래픽 증가로 인한 단일 서버 장애 위험을 방지하고 가용성을 확보하기 위해, AWS ELB와 Auto Scaling을
                 활용한 멀티 서버 구조를 설계했습니다.</li>
         </ul>
-        <p style="font-size: 0.9em; color: #666; margin-top: 15px; padding-left: 5px;">* 그 외 S3/CloudFront(정적 리소스 응답 개선)
+        <p class="pd-footnote">* 그 외 S3/CloudFront(정적 리소스 응답 개선)
             및 CloudWatch(서버 모니터링) 활용</p>
     </div>
 </div>
@@ -71,7 +70,7 @@
         <p>개발 당시 서비스 인프라 구축은 AWS 환경이었지만, 이후 현재는 Mac mini M1 기반 홈서버를 구축해 포트폴리오 전용 접속을 구성하고 있습니다.</p>
         <p>Mac mini가 꺼져 있거나 외부 IP가 변동된 경우, 링크 접속이 불가능할 수 있습니다.</p>
 
-        <div class="pd-mt-15" style="margin-bottom: 20px;">
+        <div class="pd-mt-15 pd-mb-20">
             <a href="http://175.211.42.44:8084/" target="_blank" class="btn-link pd-btn-erd-lg">
                 http://175.211.42.44:8084/ &rarr;
             </a>
@@ -79,10 +78,10 @@
 
         <div class="pd-access-info">
             <div class="pd-access-title">테스트 계정 안내</div>
-            <p style="font-size: 13.5px; color: #555; margin-bottom: 12px; margin-top: 0;">
+            <p class="pd-access-desc">
                 서비스 체험을 위해 아래 테스트 계정으로 로그인하시면 실제 중고 거래, 1:1 채팅, 안전 결제 등 모든 기능을 직접 이용해 보실 수 있습니다.
             </p>
-            <div class="pd-access-grid" style="margin-bottom: 20px;">
+            <div class="pd-access-grid pd-mb-20">
                 <div class="pd-access-row">
                     <span class="pd-access-label">일반 계정 1</span>
                     <span class="pd-access-value">ID : <code>test</code> &nbsp;/&nbsp; PW : <code>testtest</code></span>
@@ -94,17 +93,17 @@
                 </div>
             </div>
 
-            <div class="pd-access-title" style="border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: 15px;">관리자
+            <div class="pd-access-title pd-access-title-divider">관리자
                 계정 안내</div>
-            <p style="font-size: 13.5px; color: #555; margin-bottom: 12px; margin-top: 0;">
+            <p class="pd-access-desc">
                 아래 관리자 전용 링크로 접속하여 접속 코드 및 계정을 입력하시면 정산 관리, 회원 및 카테고리 관리 등 전체 관리자 패널을 직접 이용해 보실 수 있습니다.
             </p>
-            <div class="pd-access-grid" style="margin-bottom: 15px;">
+            <div class="pd-access-grid pd-mb-15">
                 <div class="pd-access-row">
                     <span class="pd-access-label">관리자 링크</span>
                     <span class="pd-access-value">
                         <a href="http://175.211.42.44:8084/admin/access" target="_blank"
-                            style="color: #007bff; font-weight: bold; text-decoration: underline;">
+                            class="pd-link-blue-bold">
                             http://175.211.42.44:8084/admin/access &rarr;
                         </a>
                     </span>
@@ -132,42 +131,41 @@
     <h3>중고책 거래 파이프라인</h3>
     <div class="modal-content-body">
         <div
-            style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 30px; text-align: center; font-weight: bold; color: #333; word-break: keep-all;">
+            class="pd-process-flow">
             중고책 거래글 등록 &rarr; 구매자와 판매자 간 1:1 채팅 &rarr; 안전 결제 &rarr; 판매 대금 정산
         </div>
 
-        <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">안전 결제</h4>
-        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">
+        <h4 class="pd-section-header">안전 결제</h4>
+        <p class="pd-font-monospace pd-text-sm pd-mb-15">
             safe_payment_st = NONE, PENDING, COMPLETED</p>
-        <div class="pd-img-wrapper" style="margin-bottom: 40px;">
-            <img src="project_image/secondhandbooks_image/안전결제_시퀀스다이어그램.png" alt="안전결제 시퀀스 다이어그램" class="pd-img-full"
-                style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <div class="pd-img-wrapper pd-mb-40">
+            <img class="pd-img-full pd-img-md-shadow" src="project_image/secondhandbooks_image/안전결제_시퀀스다이어그램.png" alt="안전결제 시퀀스 다이어그램">
         </div>
 
-        <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">판매 대금 정산</h4>
-        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">
+        <h4 class="pd-section-header">판매 대금 정산</h4>
+        <p class="pd-font-monospace pd-text-sm pd-mb-15">
             settlement_st = NONE, READY, REQUESTED, COMPLETED</p>
-        <div style="display: flex; justify-content: space-between; gap: 15px;">
-            <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 1 <span
-                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(NONE &rarr;
+        <div class="pd-flex-between">
+            <div class="pd-flex-1-center">
+                <h5 class="pd-caption-mb-10">정산 1 <span
+                        class="pd-step-label">(NONE &rarr;
                         READY)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산1_시퀀스다이어그램.png" alt="정산 1"
-                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    class="pd-img-sm-shadow">
             </div>
-            <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 2 <span
-                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(READY
+            <div class="pd-flex-1-center">
+                <h5 class="pd-caption-mb-10">정산 2 <span
+                        class="pd-step-label">(READY
                         &rarr; REQUESTED)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산2_시퀀스다이어그램.png" alt="정산 2"
-                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    class="pd-img-sm-shadow">
             </div>
-            <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 3 <span
-                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(REQUESTED
+            <div class="pd-flex-1-center">
+                <h5 class="pd-caption-mb-10">정산 3 <span
+                        class="pd-step-label">(REQUESTED
                         &rarr; COMPLETED)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산3_시퀀스다이어그램.png" alt="정산 3"
-                    style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    class="pd-img-sm-shadow">
             </div>
         </div>
     </div>
@@ -177,7 +175,7 @@
     <h3>문제와 해결 : 도메인 특성에 따른 동시성 제어 전략 분리</h3>
     <div class="modal-content-body">
         <div
-            style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; border-radius: 4px; margin-bottom: 20px; color: #333; line-height: 1.6;">
+            class="pd-highlight-box">
             <strong>"같은 동시성 문제라도 결제 요청은 '짧은 선점 경쟁'이라 조건부 UPDATE로 풀고, 정산 신청은 '검증과 생성이 묶인 금융 트랜잭션'이라 FOR UPDATE로 풀었습니다. 락을
                 일괄 적용하지 않고, 업무 흐름의 위험도에 따라 동시성 제어 전략을 분리한 점이 차별점입니다."</strong>
         </div>
@@ -250,7 +248,7 @@
         <p>메인 화면에서는 카테고리 필터, 판매 상태, 검색어, 정렬 조건, 페이지 조합이 동일한 반복 요청이 자주 발생할 수 있습니다.<br>
             동일 조건의 목록 조회가 매번 DB로 전달되면 불필요한 조회 부하가 발생하므로, 전체 거래 목록과 전체 거래 개수 등을 Redis에 캐싱했습니다.</p>
 
-        <div class="pd-access-info" style="margin-top: 15px; margin-bottom: 20px;">
+        <div class="pd-access-info pd-mt-15 pd-mb-20">
             <div class="pd-access-title">성능 향상 결과</div>
             <div class="pd-access-grid">
                 <div class="pd-access-row">
@@ -262,8 +260,8 @@
                 <div class="pd-access-row">
                     <span class="pd-access-label">개선율</span>
                     <div class="pd-access-value">
-                        <span style="font-weight: 700; color: #007bff;">약 93% 향상</span> <span
-                            style="font-size: 0.9em; color: #666;">(10회 반복 테스트 기준)</span>
+                        <span class="pd-highlight-blue">약 93% 향상</span> <span
+                            class="pd-text-sm">(10회 반복 테스트 기준)</span>
                     </div>
                 </div>
             </div>
@@ -320,7 +318,7 @@
 <div class="modal-section">
     <h3>회고 및 배운 점</h3>
     <div class="modal-content-body">
-        <ul class="pd-list-regular" style="margin-top: 10px;">
+        <ul class="pd-list-regular pd-mt-10">
             <li>Auto Scaling은 현재 규모에서는 과한 선택일 수 있었고, 트래픽 규모에 맞는 아키텍처 선택의 중요성을 배웠습니다.</li>
             <li>Redis 캐시는 변경이 잦은 상세 조회보다 반복 조회가 많은 목록성 데이터에 적합하다는 점을 경험했습니다. <br>
                 (이전에는 상세 페이지까지 캐싱 &rarr; 현재는 취소)</li>

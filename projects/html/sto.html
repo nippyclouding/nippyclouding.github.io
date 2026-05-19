@@ -2,7 +2,7 @@
     <h3>사용 기술</h3>
     <div class="modal-content-body">
         <p><strong>개발 인원 : 5명</strong><br>프론트엔드 2명, 백엔드 3명</p>
-        <ul class="pd-list-regular" style="margin-top: 10px; margin-bottom: 20px;">
+        <ul class="pd-list-regular pd-mt-10 pd-mb-20">
             <li><strong>Backend</strong>: Spring Boot 3, JPA, QueryDSL, JWT, STOMP</li>
             <li><strong>Frontend</strong>: React Vite</li>
             <li><strong>Database</strong>: PostgreSQL, Redis</li>
@@ -22,8 +22,7 @@
                 <div class="pd-access-row">
                     <span class="pd-access-label">Admin 계정</span>
                     <div class="pd-access-value">
-                        <a href="https://sto.shinhanacademy.co.kr/admin-console" target="_blank" class="link-hover"
-                            style="font-weight: 700; color: #007bff;">[관리자 콘솔 접속]</a>
+                        <a class="link-hover pd-highlight-blue" href="https://sto.shinhanacademy.co.kr/admin-console" target="_blank">[관리자 콘솔 접속]</a>
                         <span>ID: <code>admin</code> / PW: <code>qjarms98#</code></span>
                     </div>
                 </div>
@@ -41,8 +40,7 @@
             <ul class="pd-list-main">
                 <li>
                     ERD 및 API 공동 설계
-                    <a href="https://www.erdcloud.com/d/dWbsqdTWfGQ8Fye8v" target="_blank"
-                        class="btn-link pd-btn-erd-sm" style="margin-left: 8px;">
+                    <a class="btn-link pd-btn-erd-sm pd-ml-8" href="https://www.erdcloud.com/d/dWbsqdTWfGQ8Fye8v" target="_blank">
                         ERD 상세 보기 &rarr;
                     </a>
                 </li>
@@ -83,12 +81,12 @@
             등을 저장해 온체인 기록 상태를 관리했습니다. 또한 재시도 및 상태 동기화 로직을 구현해 블록체인 기록 안정성을 높이고, 관리자 대시보드에서 실시간 정산 및 온체인 기록 현황을 조회할 수 있도록
             구성했습니다.</p>
 
-        <div style="text-align: center; margin-top: 30px;">
+        <div class="pd-mt-30 pd-text-center">
             <img src="project_image/sto_image/blockchain.png" alt="Blockchain"
-                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                class="pd-img-shadow pd-mb-20">
             <img src="project_image/sto_image/flowchart.png" alt="흐름도"
-                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-            <p style="font-size: 0.9em; color: #666; margin-top: 10px; font-weight: 600;">흐름도</p>
+                class="pd-img-shadow">
+            <p class="pd-caption">흐름도</p>
         </div>
     </div>
 </div>
@@ -108,7 +106,7 @@
             <code>CandleLiveManager</code>에서 Key 값으로 즉시 조회해 조합하는 하이브리드 조회 구조를 완성할 수 있었습니다.
         </p>
 
-        <div class="pd-access-info" style="margin-top: 15px; margin-bottom: 20px;">
+        <div class="pd-access-info pd-mt-15 pd-mb-20">
             <div class="pd-access-title">성능 향상 결과</div>
             <div class="pd-access-grid">
                 <div class="pd-access-row">
@@ -120,8 +118,8 @@
                 <div class="pd-access-row">
                     <span class="pd-access-label">개선율</span>
                     <div class="pd-access-value">
-                        <span style="font-weight: 700; color: #007bff;">약 91% 향상</span> <span
-                            style="font-size: 0.9em; color: #666;">(10회 테스트 기준)</span>
+                        <span class="pd-highlight-blue">약 91% 향상</span> <span
+                            class="pd-text-sm">(10회 테스트 기준)</span>
                     </div>
                 </div>
             </div>
@@ -141,7 +139,7 @@
 <div class="modal-section">
     <h3>회고 및 배운 점</h3>
     <div class="modal-content-body">
-        <ul class="pd-list-regular" style="margin-top: 10px;">
+        <ul class="pd-list-regular pd-mt-10">
             <li><strong>동기식 서버 통신의 한계와 비동기 아키텍처 필요성</strong>: 서버 간 동기 호출 구조에서 지연과 장애 전파 문제를 경험하며, 대용량 트래픽이 중요한 금융 서비스에서는
                 이벤트 기반 비동기 통신(Kafka 등)의 도입이 필수적임을 배웠습니다.</li>
             <li><strong>금융 도메인 이해와 구현의 차이</strong>: 실시간 캔들 차트 등 특화 로직을 개발하며, 단순 기능 구현을 넘어 금융 도메인 개념에 대한 깊은 이해와 선행 분석의
@@ -149,7 +147,7 @@
             <li><strong>초기 설계의 중요성</strong>: 초반 ERD 설계의 어려움이 있었으나, 결과적으로 탄탄한 설계 덕분에 이후 로직 구현 속도를 크게 단축할 수 있었음을 경험했습니다.
             </li>
         </ul>
-        <p class="pd-subtext" style="font-size: 0.85em; margin-top: 15px;">* 프로젝트를 진행하며 공부한 금융 도메인 기록 - <a
+        <p class="pd-subtext pd-mt-15 pd-text-xs">* 프로젝트를 진행하며 공부한 금융 도메인 기록 - <a
                 href="https://hypnotic-mayonnaise-5c3.notion.site/341319fec6fe8018808ece379b646aee?source=copy_link"
                 target="_blank" class="link-hover">Notion 링크 바로가기</a></p>
     </div>
