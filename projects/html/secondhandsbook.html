@@ -2,13 +2,8 @@
     <h3>사용 기술</h3>
     <div class="modal-content-body">
         <p><strong>개발 인원 : 6명</strong><br>프론트엔드 2명, 백엔드 4명</p>
-        <p><strong>개발 환경</strong><br>
-            Java 17, MySQL 8, Redis 8<br>
-            Spring Framework with MyBatis<br>
-            Auth : Session & Cookie<br>
-            Real-Time : STOMP<br>
-            Javascript, JSP (SSR)<br>
-            AWS EC2, ELB, Auto Scaling, ElastiCache(Redis), RDS, S3, CloudFront, CloudWatch</p>
+        <p><strong>기술 스택</strong> : Java 17, Spring Framework, MyBatis, MySQL, Redis, STOMP, AWS
+            EC2/ELB/RDS/S3/CloudFront</p>
     </div>
 </div>
 
@@ -42,25 +37,16 @@
 <div class="modal-section">
     <h3>기술적 선택 근거</h3>
     <div class="modal-content-body">
-        <p>메인 화면에서 판매 상태, 카테고리, 검색 조건 등 다양한 필터 기반 동적 조회가 빈번하게 발생했기 때문에,<br>
-            복잡한 동적 SQL을 유연하게 관리하고 쿼리 제어를 세밀하게 수행하기 위해 MyBatis를 선택했습니다.</p>
-        <p>프로젝트가 JSP 기반 SSR(Server Side Rendering) 구조였기 때문에<br>
-            클라이언트 측 토큰 저장 방식보다 서버에서 사용자 인증 상태를 직접 관리하는 Session & Cookie 기반 인증 방식이 구조적으로 적합하다고 판단했습니다.</p>
-        <p>트래픽 증가 시 단일 서버 환경에서는 서버 다운 위험이 존재했기 때문에,<br>
-            AWS ELB와 Auto Scaling을 활용하여 동일 스펙의 EC2 인스턴스가 자동으로 확장되는 멀티 서버 아키텍처를 구성했습니다.<br>
-            이를 통해 특정 서버에 트래픽이 집중되는 문제를 완화하고, 서버 장애 발생 시 가용성을 확보하여 서비스 안정성을 향상시킬 수 있었습니다.</p>
-        <p>순수 WebSocket만으로도 실시간 채팅 구현은 가능했지만,<br>
-            향후 멀티 서버 환경에서 세션 및 메시지 관리를 보다 유연하게 처리하기 위해 STOMP 프로토콜을 도입했습니다.<br>
-            이를 통해 채팅 메시지 라우팅 구조를 단순화하고 Publish/Subscribe 기반 메시징 처리를 가능하게 하여 서버 확장 시 구조 변경을 최소화했습니다.</p>
-        <p>멀티 서버 환경에서는 서버마다 메모리 영역이 분리되어 세션 및 실시간 데이터 동기화가 필요했기에 Redis를 도입했습니다.<br>
-            회원 로그인 시 Session 데이터를 Redis에 저장하여 서버 간 동일한 인증 상태를 유지하고,<br>
-            1:1 채팅 시 Redis Pub/Sub 기능을 사용해 서버 간 채팅 메시지를 동기화했습니다.<br>
-            또한 도서 카테고리 등 자주 변경되지 않는 데이터를 캐싱하여 DB 조회 횟수를 줄이고 응답 속도를 개선했습니다.</p>
-        <p>중고책 이미지 파일 저장을 위해 S3를 사용하고,<br>
-            정적 이미지 응답 속도 개선 및 트래픽 분산을 위해 CloudFront CDN을 적용했습니다.<br>
-            이를 통해 서버와 이미지 저장소를 분리하여 정적 리소스 응답 속도를 향상시키고 서버 부하를 감소시키는 효과를 얻었습니다.</p>
-        <p>AWS 인프라 리소스 상태 및 서버 로그 모니터링을 위해 CloudWatch를 사용했습니다.<br>
-            이를 통해 CPU 및 메모리 사용량을 모니터링하고, 서버 상태 및 장애 로그를 확인하며 트래픽 증가 상황에 대응하는 등 운영 환경의 안정성을 효율적으로 관리했습니다.</p>
+        <ul class="pd-list-regular">
+            <li><strong>MyBatis 선택</strong> : 판매 상태, 카테고리 등 다양한 필터 기반의 동적 조회가 빈번하여, 복잡한 동적 SQL을 유연하게 제어하기 위해 선택했습니다.
+            </li>
+            <li><strong>Redis 도입</strong> : 멀티 서버 환경에서 서버 간 분리된 세션 및 채팅 데이터를 동기화하고, 반복 조회가 많은 거래 목록 데이터를 캐싱하여 DB 부하를 줄이기
+                위해 도입했습니다.</li>
+            <li><strong>AWS 멀티 서버 아키텍처 구축</strong> : 트래픽 증가로 인한 단일 서버 장애 위험을 방지하고 가용성을 확보하기 위해, AWS ELB와 Auto Scaling을
+                활용한 멀티 서버 구조를 설계했습니다.</li>
+        </ul>
+        <p style="font-size: 0.9em; color: #666; margin-top: 15px; padding-left: 5px;">* 그 외 S3/CloudFront(정적 리소스 응답 개선)
+            및 CloudWatch(서버 모니터링) 활용</p>
     </div>
 </div>
 
@@ -84,7 +70,7 @@
     <div class="modal-content-body">
         <p>개발 당시 서비스 인프라 구축은 AWS 환경이었지만, 이후 현재는 Mac mini M1 기반 홈서버를 구축해 포트폴리오 전용 접속을 구성하고 있습니다.</p>
         <p>Mac mini가 꺼져 있거나 외부 IP가 변동된 경우, 링크 접속이 불가능할 수 있습니다.</p>
-        
+
         <div class="pd-mt-15" style="margin-bottom: 20px;">
             <a href="http://175.211.42.44:8084/" target="_blank" class="btn-link pd-btn-erd-lg">
                 http://175.211.42.44:8084/ &rarr;
@@ -103,11 +89,13 @@
                 </div>
                 <div class="pd-access-row">
                     <span class="pd-access-label">일반 계정 2</span>
-                    <span class="pd-access-value">ID : <code>hello</code> &nbsp;/&nbsp; PW : <code>hellohello</code></span>
+                    <span class="pd-access-value">ID : <code>hello</code> &nbsp;/&nbsp; PW :
+                        <code>hellohello</code></span>
                 </div>
             </div>
 
-            <div class="pd-access-title" style="border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: 15px;">관리자 계정 안내</div>
+            <div class="pd-access-title" style="border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: 15px;">관리자
+                계정 안내</div>
             <p style="font-size: 13.5px; color: #555; margin-bottom: 12px; margin-top: 0;">
                 아래 관리자 전용 링크로 접속하여 접속 코드 및 계정을 입력하시면 정산 관리, 회원 및 카테고리 관리 등 전체 관리자 패널을 직접 이용해 보실 수 있습니다.
             </p>
@@ -115,7 +103,8 @@
                 <div class="pd-access-row">
                     <span class="pd-access-label">관리자 링크</span>
                     <span class="pd-access-value">
-                        <a href="http://175.211.42.44:8084/admin/access" target="_blank" style="color: #007bff; font-weight: bold; text-decoration: underline;">
+                        <a href="http://175.211.42.44:8084/admin/access" target="_blank"
+                            style="color: #007bff; font-weight: bold; text-decoration: underline;">
                             http://175.211.42.44:8084/admin/access &rarr;
                         </a>
                     </span>
@@ -148,31 +137,75 @@
         </div>
 
         <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">안전 결제</h4>
-        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">safe_payment_st = NONE, PENDING, COMPLETED</p>
+        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">
+            safe_payment_st = NONE, PENDING, COMPLETED</p>
         <div class="pd-img-wrapper" style="margin-bottom: 40px;">
             <img src="project_image/secondhandbooks_image/안전결제_시퀀스다이어그램.png" alt="안전결제 시퀀스 다이어그램" class="pd-img-full"
                 style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
         </div>
 
         <h4 style="margin-bottom: 5px; font-size: 1.1em; color: #111;">판매 대금 정산</h4>
-        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">settlement_st = NONE, READY, REQUESTED, COMPLETED</p>
+        <p style="margin-bottom: 15px; font-size: 0.9em; color: #555; font-family: monospace; font-weight: 600;">
+            settlement_st = NONE, READY, REQUESTED, COMPLETED</p>
         <div style="display: flex; justify-content: space-between; gap: 15px;">
             <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 1 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(NONE &rarr; READY)</span></h5>
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 1 <span
+                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(NONE &rarr;
+                        READY)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산1_시퀀스다이어그램.png" alt="정산 1"
                     style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
             </div>
             <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 2 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(READY &rarr; REQUESTED)</span></h5>
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 2 <span
+                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(READY
+                        &rarr; REQUESTED)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산2_시퀀스다이어그램.png" alt="정산 2"
                     style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
             </div>
             <div style="flex: 1; text-align: center;">
-                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 3 <span style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(REQUESTED &rarr; COMPLETED)</span></h5>
+                <h5 style="margin-bottom: 10px; font-size: 0.9em; color: #666;">정산 3 <span
+                        style="font-weight: normal; color: #888; font-size: 0.9em; font-family: monospace;">(REQUESTED
+                        &rarr; COMPLETED)</span></h5>
                 <img src="project_image/secondhandbooks_image/정산3_시퀀스다이어그램.png" alt="정산 3"
                     style="width: 100%; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal-section">
+    <h3>문제와 해결 : 도메인 특성에 따른 동시성 제어 전략 분리</h3>
+    <div class="modal-content-body">
+        <div
+            style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; border-radius: 4px; margin-bottom: 20px; color: #333; line-height: 1.6;">
+            <strong>"같은 동시성 문제라도 결제 요청은 '짧은 선점 경쟁'이라 조건부 UPDATE로 풀고, 정산 신청은 '검증과 생성이 묶인 금융 트랜잭션'이라 FOR UPDATE로 풀었습니다. 락을
+                일괄 적용하지 않고, 업무 흐름의 위험도에 따라 동시성 제어 전략을 분리한 점이 차별점입니다."</strong>
+        </div>
+
+        <h4>1. 안전결제는 락보다 상태 전이 게이트로 해결 (조건부 UPDATE)</h4>
+        <p>안전결제 요청 과정에서는 여러 구매자가 동시에 결제를 시도하는 짧고 빈번한 경쟁이 발생할 수 있습니다. 이를 해결하기 위해 병목을 유발할 수 있는 비관적 락 대신,
+            <code>NONE &rarr; PENDING &rarr; COMPLETED</code>로 이어지는 상태 머신과 DB 레벨의 조건부 UPDATE(CAS 유사 방식)를 활용했습니다.
+        </p>
+        <ul class="pd-list-regular">
+            <li>판매자가 채팅에서 안전결제를 요청합니다.</li>
+            <li><code>WHERE safe_payment_st = 'NONE'</code>인 경우에만 <code>PENDING</code> 상태로 업데이트합니다. 여러 구매자가 동시에 접근해도 단
+                하나의 UPDATE 쿼리만 성공하며, 실패한 요청은 "이미 결제 진행 중"이라는 응답을 받게 됩니다.</li>
+            <li>성공 시 <code>pending_buyer_seq</code>와 5분의 만료 시간을 함께 저장하고, 결제 완료 시점에도
+                <code>PENDING + pending_buyer_seq</code> 일치 조건을 확인하여 <code>COMPLETED</code>로 처리합니다.
+            </li>
+        </ul>
+
+        <hr>
+
+        <h4>2. 정산은 비관적 락(FOR UPDATE)으로 강하게 보호</h4>
+        <p>정산 과정은 결제 시작과 달리 <strong>금액 계산, 판매자 검증, 구매확정 여부 확인, 정산 데이터(settlement) 생성, 거래 상태 변경</strong> 등 여러 작업이 하나의 원자적
+            흐름으로 묶여야 하는 금융 트랜잭션입니다.</p>
+        <ul class="pd-list-regular">
+            <li>상태 확인부터 데이터 생성 및 변경까지의 모든 과정에서 데이터 무결성을 완벽히 보장하기 위해 비관적 락(Pessimistic Lock)을 적용했습니다.</li>
+            <li>MyBatis Mapper에서 거래 레코드를 조회할 때 <code>FOR UPDATE</code> 구문을 사용해 대상 row를 선점하고 처리를 진행하도록 구현했습니다.</li>
+            <li>결과적으로 결제 요청은 조건부 UPDATE로 빠르게 통과시키고, 복잡한 검증이 얽힌 정산 로직은 비관적 락으로 정확성을 최우선시하여 전체 시스템의 효율과 안정성의 밸런스를 맞췄습니다.
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -216,6 +249,26 @@
         <h4>2. Redis 캐시 설정</h4>
         <p>메인 화면에서는 카테고리 필터, 판매 상태, 검색어, 정렬 조건, 페이지 조합이 동일한 반복 요청이 자주 발생할 수 있습니다.<br>
             동일 조건의 목록 조회가 매번 DB로 전달되면 불필요한 조회 부하가 발생하므로, 전체 거래 목록과 전체 거래 개수 등을 Redis에 캐싱했습니다.</p>
+
+        <div class="pd-access-info" style="margin-top: 15px; margin-bottom: 20px;">
+            <div class="pd-access-title">성능 향상 결과</div>
+            <div class="pd-access-grid">
+                <div class="pd-access-row">
+                    <span class="pd-access-label">응답 시간</span>
+                    <div class="pd-access-value">
+                        평균 <code>120ms</code> &rarr; <code>8ms</code>
+                    </div>
+                </div>
+                <div class="pd-access-row">
+                    <span class="pd-access-label">개선율</span>
+                    <div class="pd-access-value">
+                        <span style="font-weight: 700; color: #007bff;">약 93% 향상</span> <span
+                            style="font-size: 0.9em; color: #666;">(10회 반복 테스트 기준)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <h5 class="pd-heading-h5">[ 캐싱 동작 조건 ]</h5>
         <ul class="pd-list-spaced">
             <li class="pd-list-item-sm">
@@ -267,47 +320,10 @@
 <div class="modal-section">
     <h3>회고 및 배운 점</h3>
     <div class="modal-content-body">
-        <h4>Auto Scaling 적용에 대한 고민</h4>
-        <p>초기에는 Auto Scaling 기반 멀티 서버 구조를 적용했지만, 현재 프로젝트 규모에서는 다소 과한 구조였을 수 있다고 느꼈습니다.</p>
-        <p>이를 통해 단순한 확장성보다 서비스 규모와 트래픽 패턴에 맞는 아키텍처 선택이 중요하다는 점을 배웠습니다.</p>
-        <hr>
-        <h4>Redis 캐싱 전략</h4>
-        <p>초기에는 판매글 상세 조회에도 Redis Cache를 적용했습니다.<br>
-            하지만 판매글 상세 데이터는:</p>
-        <ul>
-            <li>조회수 증가</li>
-            <li>판매 상태 변경</li>
-            <li>게시글 수정</li>
+        <ul class="pd-list-regular" style="margin-top: 10px;">
+            <li>Auto Scaling은 현재 규모에서는 과한 선택일 수 있었고, 트래픽 규모에 맞는 아키텍처 선택의 중요성을 배웠습니다.</li>
+            <li>Redis 캐시는 변경이 잦은 상세 조회보다 반복 조회가 많은 목록성 데이터에 적합하다는 점을 경험했습니다. <br>
+                (이전에는 상세 페이지까지 캐싱 &rarr; 현재는 취소)</li>
         </ul>
-        <p>등으로 인해 Cache Evict가 자주 발생했고,<br>
-            결과적으로 조회 대비 캐시 유지 효율이 높지 않았습니다.</p>
-        <p>이후에는:</p>
-        <ul>
-            <li>반복 조회 비율이 높은 목록성 데이터 위주로 캐싱을 유지하고</li>
-            <li>변경이 잦은 상세 데이터는 DB에서 직접 조회</li>
-        </ul>
-        <p>하도록 전략을 수정했습니다.</p>
-        <p>이를 통해 캐싱은 단순히 “빠르게 만들기 위한 기술”이 아니라,<br>
-            조회 대비 Update/Delete 비율과 데이터 변경 주기를 함께 고려하여 적용해야 한다는 점을 이해하게 되었습니다.</p>
-        <hr>
-        <h4>AWS 클라우드 환경 운영 경험</h4>
-        <img src="project_image/secondhandbooks_image/cloudwatch.png" alt="CloudWatch Monitoring" class="pd-img-full">
-        <p>AWS 기반 멀티 서버 환경을 직접 구성하며 로드밸런싱, 세션 공유, CDN 기반 정적 리소스 분리, 모니터링 환경 구축 등을 경험했습니다.</p>
-        <hr>
-        <h4>향후 MSA 확장 가능성에 대한 고민</h4>
-        <p>프로젝트를 진행하며 도메인 규모가 커질 경우 서비스 단위 분리 필요성을 느꼈습니다.</p>
-        <p>향후에는 거래/결제와 커뮤니티 기능을 분리하여 독립 배포 및 확장 가능한 구조로 개선할 수 있다고 생각했습니다.</p>
-        <hr>
-        <h4>향후 정산 자동화 및 배치 처리 도입에 대한 고민</h4>
-        <p>현재 시스템에서는 구매 확정된 거래에 대해 관리자가 직접 판매자의 계좌로 정산 금액을 송금하는 수동 방식으로 운영되고 있습니다.<br>
-            하지만 서비스 규모가 커질수록 이러한 방식은 관리자의 업무 부담을 가중시키고 송금 지연 및 휴먼 에러를 유발할 수 있다고 느꼈습니다.</p>
-        <p>이를 개선하기 위해 향후에는 정산 프로세스를 자동화해야겠다는 필요성을 깨달았습니다.</p>
-        <p>구상 중인 개선 흐름은 다음과 같습니다:</p>
-        <ul>
-            <li>관리자가 서비스 내부 정산 Pool에 일정 금액을 사전 충전</li>
-            <li>매일 특정 시간에 배치 프로세스가 실행되어 당일 구매 확정된 거래 목록을 일괄 조회</li>
-            <li>충전금에서 각 판매자에게 지급할 정산금을 자동으로 차감 및 이체 처리</li>
-        </ul>
-        <p>이러한 과정을 통해, 단순히 기능을 동작하게 하는 것을 넘어 대량의 트랜잭션을 안정적이고 효율적으로 처리하는 배치 처리 기술의 중요성을 생각해 볼 수 있었습니다.</p>
     </div>
 </div>

@@ -28,7 +28,7 @@ function setActiveMenu() {
     } else if (page === 'about.html') {
         const aboutMenu = document.getElementById('nav-about');
         if (aboutMenu) aboutMenu.classList.add('active');
-    } else if (page === 'project.html') {
+    } else if (page === 'portfolio.html') {
         const projectMenu = document.getElementById('nav-project');
         if (projectMenu) projectMenu.classList.add('active');
         // 프로젝트 페이지일 경우 모달 초기화 실행
